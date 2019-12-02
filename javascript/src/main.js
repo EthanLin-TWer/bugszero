@@ -1,7 +1,7 @@
-"use strict"
+"use strict";
 
-let gameRunner = require('./game-runner')
+let gameRunner = require("./game-runner");
 
-gameRunner(function (maxInt) {
-    return Math.floor(Math.random() * maxInt) + 1
+gameRunner(function(maxInt) {
+  return Math.floor(Math.random() * maxInt) + 1;
 });

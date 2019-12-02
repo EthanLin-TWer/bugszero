@@ -5,15 +5,26 @@
   "main": "game-runner.js",
   "scripts": {
     "compile": "tsc -w",
-    "test": "mocha -w -r ts-node/register test/**/*.spec.js"
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/test/**/*.spec.js"
+    ],
+    "transform": {
+      ".ts$": "ts-jest"
+    }
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "approvals": "^2.1.2",
     "chai": "^3.5.0",
+    "jest": "^24.9.0",
     "mocha": "^5.2.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.4",

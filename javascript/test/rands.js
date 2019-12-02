@@ -2,8 +2,8 @@ const seeds = [0.77,0.92,0.57,0.29,0.24,0.85,0.24,0.48,0.89,0.18,0.59,0.78,0.97,
 
 let i = -1;
 function getRandom(upperLimit) {
-    i++;
-    return Math.ceil(seeds[i] * upperLimit);
+  i++;
+  return Math.ceil(seeds[i] * upperLimit);
 }
 
-module.exports = {getRandom};
+module.exports = { getRandom };
