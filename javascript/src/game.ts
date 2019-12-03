@@ -97,14 +97,10 @@ export class Game {
   }
 
   _movePlayerAndAskQuestion(roll) {
-    this._moveCurrentPlayerForward(roll);
+    this.getCurrentPlayer().moveForward(roll);
 
     console.log(`The category is ${this.currentCategory()}`);
     this.askQuestion();
-  }
-
-  _moveCurrentPlayerForward(roll) {
-    this.getCurrentPlayer().moveForward(roll);
   }
 
   wasCorrectlyAnswered() {
