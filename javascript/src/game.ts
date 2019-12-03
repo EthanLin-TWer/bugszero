@@ -9,11 +9,9 @@ export class Game {
   players: any[];
   currentPlayer: number;
   isGettingOutOfPenaltyBox: boolean;
-  inPenaltyBox: any[];
 
   constructor() {
     this.players = [];
-    this.inPenaltyBox = new Array(6);
 
     this.popQuestions = [];
     this.scienceQuestions = [];
@@ -33,7 +31,6 @@ export class Game {
 
   add(playerName) {
     this.players.push(new Player(playerName));
-    this.inPenaltyBox[this.getTotalPlayers()] = false;
 
     console.log(`They are player number ${this.players.length}`);
   }
@@ -128,7 +125,6 @@ export class Game {
   wrongAnswer() {
     console.log("Question was incorrectly answered");
     console.log(`${this.getCurrentPlayerName()} was sent to the penalty box`);
-    this.inPenaltyBox[this.currentPlayer] = true;
     this.getCurrentPlayer().sendToPenaltyBox();
 
     this.currentPlayer += 1;
