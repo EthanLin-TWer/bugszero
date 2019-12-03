@@ -45,15 +45,15 @@ export class Game {
   }
 
   currentCategory() {
-    if (this.places[this.currentPlayer] == 0) return "Pop";
-    if (this.places[this.currentPlayer] == 4) return "Pop";
-    if (this.places[this.currentPlayer] == 8) return "Pop";
-    if (this.places[this.currentPlayer] == 1) return "Science";
-    if (this.places[this.currentPlayer] == 5) return "Science";
-    if (this.places[this.currentPlayer] == 9) return "Science";
-    if (this.places[this.currentPlayer] == 2) return "Sports";
-    if (this.places[this.currentPlayer] == 6) return "Sports";
-    if (this.places[this.currentPlayer] == 10) return "Sports";
+    if (this.getCurrentPlace() == 0) return "Pop";
+    if (this.getCurrentPlace() == 4) return "Pop";
+    if (this.getCurrentPlace() == 8) return "Pop";
+    if (this.getCurrentPlace() == 1) return "Science";
+    if (this.getCurrentPlace() == 5) return "Science";
+    if (this.getCurrentPlace() == 9) return "Science";
+    if (this.getCurrentPlace() == 2) return "Sports";
+    if (this.getCurrentPlace() == 6) return "Sports";
+    if (this.getCurrentPlace() == 10) return "Sports";
     return "Rock";
   }
 
@@ -104,15 +104,15 @@ export class Game {
   }
 
   _movePlayerAndAskQuestion(roll) {
-    this.places[this.currentPlayer] = this.places[this.currentPlayer] + roll;
-    if (this.places[this.currentPlayer] > 11) {
-      this.places[this.currentPlayer] = this.places[this.currentPlayer] - 12;
+    this.places[this.currentPlayer] = this.getCurrentPlace() + roll;
+    if (this.getCurrentPlace() > 11) {
+      this.places[this.currentPlayer] = this.getCurrentPlace() - 12;
     }
 
     console.log(
-      `${this.players[this.currentPlayer]}'s new location is ${
-        this.places[this.currentPlayer]
-      }`
+      `${
+        this.players[this.currentPlayer]
+      }'s new location is ${this.getCurrentPlace()}`
     );
     console.log(`The category is ${this.currentCategory()}`);
     this.askQuestion();
@@ -164,5 +164,9 @@ export class Game {
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
     return true;
+  }
+
+  private getCurrentPlace() {
+    return this.places[this.currentPlayer];
   }
 }
