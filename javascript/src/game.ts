@@ -81,7 +81,7 @@ export class Game {
   }
 
   roll(roll) {
-    console.log(`${this.players[this.currentPlayer]} is the current player`);
+    console.log(`${this.getCurrentPlayer()} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
     if (this.inPenaltyBox[this.currentPlayer]) {
@@ -89,16 +89,12 @@ export class Game {
         this.isGettingOutOfPenaltyBox = true;
 
         console.log(
-          `${
-            this.players[this.currentPlayer]
-          } is getting out of the penalty box`
+          `${this.getCurrentPlayer()} is getting out of the penalty box`
         );
         this._movePlayerAndAskQuestion(roll);
       } else {
         console.log(
-          `${
-            this.players[this.currentPlayer]
-          } is not getting out of the penalty box`
+          `${this.getCurrentPlayer()} is not getting out of the penalty box`
         );
         this.isGettingOutOfPenaltyBox = false;
       }
@@ -114,12 +110,14 @@ export class Game {
     }
 
     console.log(
-      `${
-        this.players[this.currentPlayer]
-      }'s new location is ${this.getCurrentPlace()}`
+      `${this.getCurrentPlayer()}'s new location is ${this.getCurrentPlace()}`
     );
     console.log(`The category is ${this.currentCategory()}`);
     this.askQuestion();
+  }
+
+  private getCurrentPlayer() {
+    return this.players[this.currentPlayer];
   }
 
   wasCorrectlyAnswered() {
@@ -131,7 +129,7 @@ export class Game {
 
         this.value[this.currentPlayer] += 1;
         console.log(
-          `${this.players[this.currentPlayer]} now has ${
+          `${this.getCurrentPlayer()} now has ${
             this.value[this.currentPlayer]
           } Gold Coins.`
         );
@@ -149,7 +147,7 @@ export class Game {
       if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
       this.value[this.currentPlayer] += 1;
       console.log(
-        `${this.players[this.currentPlayer]} now has ${
+        `${this.getCurrentPlayer()} now has ${
           this.value[this.currentPlayer]
         } Gold Coins.`
       );
@@ -160,9 +158,7 @@ export class Game {
 
   wrongAnswer() {
     console.log("Question was incorrectly answered");
-    console.log(
-      `${this.players[this.currentPlayer]} was sent to the penalty box`
-    );
+    console.log(`${this.getCurrentPlayer()} was sent to the penalty box`);
     this.inPenaltyBox[this.currentPlayer] = true;
 
     this.currentPlayer += 1;
