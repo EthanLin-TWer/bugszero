@@ -2,6 +2,7 @@ export class Player {
   private readonly _name;
   private _goldCoins: number = 0;
   private _place: number = 0;
+  private _isInPenaltyBox: boolean = false;
 
   constructor(name) {
     this._name = name;
