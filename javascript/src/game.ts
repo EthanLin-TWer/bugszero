@@ -41,8 +41,6 @@ export class Game {
     this.inPenaltyBox[this.getTotalPlayers()] = false;
 
     console.log(`They are player number ${this.players.length}`);
-
-    return true;
   }
 
   private getTotalPlayers() {
