@@ -8,14 +8,12 @@ export class Game {
   scienceQuestions: any[];
   inPenaltyBox: any[];
   popQuestions: any[];
-  goldCoins: any[];
   places: any[];
   players: any[];
 
   constructor() {
     this.players = [];
     this.places = new Array(6);
-    this.goldCoins = new Array(6);
     this.inPenaltyBox = new Array(6);
 
     this.popQuestions = [];
@@ -37,7 +35,6 @@ export class Game {
   add(playerName) {
     this.players.push(new Player(playerName));
     this.places[this.getTotalPlayers()] = 0;
-    this.goldCoins[this.getTotalPlayers()] = 0;
     this.inPenaltyBox[this.getTotalPlayers()] = false;
 
     console.log(`They are player number ${this.players.length}`);
