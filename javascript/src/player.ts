@@ -1,6 +1,6 @@
 export class Player {
   private readonly _name;
-  private goldCoins: number = 0;
+  private _goldCoins: number = 0;
 
   constructor(name) {
     this._name = name;
@@ -13,6 +13,10 @@ export class Player {
   }
 
   increaseAGoldCoin() {
-    this.goldCoins += 1;
+    this._goldCoins += 1;
+  }
+
+  get goldCoins(): number {
+    return this._goldCoins;
   }
 }

@@ -162,7 +162,7 @@ export class Game {
   }
 
   private getCurrentPlayerGoldCoins() {
-    return this.goldCoins[this.currentPlayer];
+    return this.getCurrentPlayer().goldCoins;
   }
 
   private getCurrentPlayerPlace() {
