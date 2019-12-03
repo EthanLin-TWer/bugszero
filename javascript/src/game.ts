@@ -55,6 +55,7 @@ export class Game {
   }
 
   askQuestion() {
+    console.log(`The category is ${this.currentCategory()}`);
     if (this.currentCategory() == "Pop") {
       console.log(this.popQuestions.shift());
     }
@@ -98,8 +99,6 @@ export class Game {
 
   _movePlayerAndAskQuestion(roll) {
     this.getCurrentPlayer().moveForward(roll);
-
-    console.log(`The category is ${this.currentCategory()}`);
     this.askQuestion();
   }
 
