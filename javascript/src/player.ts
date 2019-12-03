@@ -1,5 +1,7 @@
 export class Player {
   private readonly _name;
+  private goldCoins: number = 0;
+
   constructor(name) {
     this._name = name;
 
