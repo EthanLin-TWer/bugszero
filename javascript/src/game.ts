@@ -154,7 +154,7 @@ export class Game {
   }
 
   private getCurrentPlayerName() {
-    return this.players[this.currentPlayer].name;
+    return this.getCurrentPlayer().name;
   }
 
   private getCurrentPlayerGoldCoins() {
