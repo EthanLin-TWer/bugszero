@@ -112,6 +112,7 @@ export class Game {
       places = places - 12;
     }
     this.places[this.currentPlayer] = places;
+    this.getCurrentPlayer().moveForward(roll);
     console.log(
       `${this.getCurrentPlayerName()}'s new location is ${this.getCurrentPlayerPlace()}`
     );

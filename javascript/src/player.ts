@@ -22,4 +22,14 @@ export class Player {
   get goldCoins(): number {
     return this._goldCoins;
   }
+
+  // place
+  moveForward(places): void {
+    let result = this.place + places;
+    if (result > 11) {
+      result = result - 12;
+    }
+    this.place = result;
+    // console.log(`${this.name}'s new location is ${this.place}`);
+  }
 }
