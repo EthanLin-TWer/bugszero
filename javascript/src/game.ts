@@ -141,12 +141,14 @@ export class Game {
 
     this.value[this.currentPlayer] += 1;
     console.log(
-      `${this.getCurrentPlayer()} now has ${
-        this.value[this.currentPlayer]
-      } Gold Coins.`
+      `${this.getCurrentPlayer()} now has ${this.getCurrentPlayerValue()} Gold Coins.`
     );
 
-    return !(this.value[this.currentPlayer] == 6);
+    return !(this.getCurrentPlayerValue() == 6);
+  }
+
+  private getCurrentPlayerValue() {
+    return this.value[this.currentPlayer];
   }
 
   wrongAnswer() {
