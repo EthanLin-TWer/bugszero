@@ -123,9 +123,6 @@ export class Game {
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
 
     this.getCurrentPlayer().increaseAGoldCoin();
-    console.log(
-      `${this.getCurrentPlayerName()} now has ${this.getCurrentPlayerGoldCoins()} Gold Coins.`
-    );
 
     return !(this.getCurrentPlayerGoldCoins() == 6);
   }

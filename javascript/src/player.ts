@@ -18,6 +18,8 @@ export class Player {
   // gold coins
   increaseAGoldCoin() {
     this._goldCoins += 1;
+
+    console.log(`${this.name} now has ${this._goldCoins} Gold Coins.`);
   }
 
   get goldCoins(): number {
