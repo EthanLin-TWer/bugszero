@@ -48,13 +48,17 @@ export class Game {
       case 8: {
         return "Pop";
       }
+      case 1:
+      case 5:
+      case 9: {
+        return "Science";
+      }
+      case 2:
+      case 6:
+      case 10: {
+        return "Sports";
+      }
     }
-    if (this.getCurrentPlayerPlace() == 1) return "Science";
-    if (this.getCurrentPlayerPlace() == 5) return "Science";
-    if (this.getCurrentPlayerPlace() == 9) return "Science";
-    if (this.getCurrentPlayerPlace() == 2) return "Sports";
-    if (this.getCurrentPlayerPlace() == 6) return "Sports";
-    if (this.getCurrentPlayerPlace() == 10) return "Sports";
     return "Rock";
   }
 
