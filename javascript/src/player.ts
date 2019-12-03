@@ -11,4 +11,8 @@ export class Player {
   get name() {
     return this._name;
   }
+
+  increaseAGoldCoin() {
+    this.goldCoins += 1;
+  }
 }
