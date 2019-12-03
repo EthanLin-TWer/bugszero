@@ -123,8 +123,7 @@ export class Game {
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
 
     this.getCurrentPlayer().increaseAGoldCoin();
-
-    return !(this.getCurrentPlayerGoldCoins() == 6);
+    return this.getCurrentPlayer().goldCoins !== 6;
   }
 
   private getCurrentPlayer(): Player {
@@ -133,9 +132,5 @@ export class Game {
 
   private getCurrentPlayerName() {
     return this.getCurrentPlayer().name;
-  }
-
-  private getCurrentPlayerGoldCoins() {
-    return this.getCurrentPlayer().goldCoins;
   }
 }
