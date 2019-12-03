@@ -42,7 +42,11 @@ export class Game {
   }
 
   currentCategory() {
-    if (this.getCurrentPlayerPlace() == 0) return "Pop";
+    switch (this.getCurrentPlayerPlace()) {
+      case 0: {
+        return "Pop";
+      }
+    }
     if (this.getCurrentPlayerPlace() == 4) return "Pop";
     if (this.getCurrentPlayerPlace() == 8) return "Pop";
     if (this.getCurrentPlayerPlace() == 1) return "Science";
