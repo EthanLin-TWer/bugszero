@@ -87,7 +87,7 @@ export class Game {
     console.log(`${this.getCurrentPlayerName()} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
-    if (this.inPenaltyBox[this.currentPlayer]) {
+    if (this.getCurrentPlayer().isInPenaltyBox) {
       if (roll % 2 != 0) {
         this.isGettingOutOfPenaltyBox = true;
 
@@ -112,7 +112,7 @@ export class Game {
   }
 
   wasCorrectlyAnswered() {
-    if (this.inPenaltyBox[this.currentPlayer]) {
+    if (this.getCurrentPlayer().isInPenaltyBox) {
       if (this.isGettingOutOfPenaltyBox) {
         return this.correctAnswer();
       } else {
@@ -129,7 +129,7 @@ export class Game {
     console.log("Question was incorrectly answered");
     console.log(`${this.getCurrentPlayerName()} was sent to the penalty box`);
     this.inPenaltyBox[this.currentPlayer] = true;
-    this.getCurrentPlayer().sendToPenaltyBox()
+    this.getCurrentPlayer().sendToPenaltyBox();
 
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
