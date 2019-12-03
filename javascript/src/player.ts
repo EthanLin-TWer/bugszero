@@ -34,7 +34,12 @@ export class Player {
     return this._place;
   }
 
+  // is penalty box
   sendToPenaltyBox(): void {
-    this._isInPenaltyBox = true
+    this._isInPenaltyBox = true;
+  }
+
+  get isInPenaltyBox(): boolean {
+    return this._isInPenaltyBox;
   }
 }
