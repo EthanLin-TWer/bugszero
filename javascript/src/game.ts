@@ -2,13 +2,14 @@ import { Player } from "./player";
 
 export class Game {
   rockQuestions: any[];
-  isGettingOutOfPenaltyBox: boolean;
-  currentPlayer: number;
   sportsQuestions: any[];
   scienceQuestions: any[];
-  inPenaltyBox: any[];
   popQuestions: any[];
+
   players: any[];
+  currentPlayer: number;
+  isGettingOutOfPenaltyBox: boolean;
+  inPenaltyBox: any[];
 
   constructor() {
     this.players = [];
