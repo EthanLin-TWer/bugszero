@@ -11,15 +11,15 @@ export class Game {
   players: any[];
 
   constructor() {
-    this.players = new Array();
+    this.players = [];
     this.places = new Array(6);
     this.value = new Array(6);
     this.inPenaltyBox = new Array(6);
 
-    this.popQuestions = new Array();
-    this.scienceQuestions = new Array();
-    this.sportsQuestions = new Array();
-    this.rockQuestions = new Array();
+    this.popQuestions = [];
+    this.scienceQuestions = [];
+    this.sportsQuestions = [];
+    this.rockQuestions = [];
 
     this.currentPlayer = 0;
     this.isGettingOutOfPenaltyBox = false;
