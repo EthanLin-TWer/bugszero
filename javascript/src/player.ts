@@ -25,12 +25,7 @@ export class Player {
 
   // place
   moveForward(places): void {
-    let result = this._place + places;
-    if (result > 11) {
-      result = result - 12;
-    }
-    this._place = result;
-
+    this._place = (this._place + places) % 12;
     console.log(`${this.name}'s new location is ${this.place}`);
   }
 
