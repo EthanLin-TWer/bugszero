@@ -109,7 +109,6 @@ export class Game {
 
   wrongAnswer() {
     console.log("Question was incorrectly answered");
-    console.log(`${this.getCurrentPlayerName()} was sent to the penalty box`);
     this.getCurrentPlayer().sendToPenaltyBox();
 
     this.currentPlayer += 1;
