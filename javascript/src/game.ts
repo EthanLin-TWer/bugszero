@@ -49,15 +49,15 @@ export class Game {
   }
 
   currentCategory() {
-    if (this.getCurrentPlace() == 0) return "Pop";
-    if (this.getCurrentPlace() == 4) return "Pop";
-    if (this.getCurrentPlace() == 8) return "Pop";
-    if (this.getCurrentPlace() == 1) return "Science";
-    if (this.getCurrentPlace() == 5) return "Science";
-    if (this.getCurrentPlace() == 9) return "Science";
-    if (this.getCurrentPlace() == 2) return "Sports";
-    if (this.getCurrentPlace() == 6) return "Sports";
-    if (this.getCurrentPlace() == 10) return "Sports";
+    if (this.getCurrentPlayerPlace() == 0) return "Pop";
+    if (this.getCurrentPlayerPlace() == 4) return "Pop";
+    if (this.getCurrentPlayerPlace() == 8) return "Pop";
+    if (this.getCurrentPlayerPlace() == 1) return "Science";
+    if (this.getCurrentPlayerPlace() == 5) return "Science";
+    if (this.getCurrentPlayerPlace() == 9) return "Science";
+    if (this.getCurrentPlayerPlace() == 2) return "Sports";
+    if (this.getCurrentPlayerPlace() == 6) return "Sports";
+    if (this.getCurrentPlayerPlace() == 10) return "Sports";
     return "Rock";
   }
 
@@ -104,13 +104,13 @@ export class Game {
   }
 
   _movePlayerAndAskQuestion(roll) {
-    this.places[this.currentPlayer] = this.getCurrentPlace() + roll;
-    if (this.getCurrentPlace() > 11) {
-      this.places[this.currentPlayer] = this.getCurrentPlace() - 12;
+    this.places[this.currentPlayer] = this.getCurrentPlayerPlace() + roll;
+    if (this.getCurrentPlayerPlace() > 11) {
+      this.places[this.currentPlayer] = this.getCurrentPlayerPlace() - 12;
     }
 
     console.log(
-      `${this.getCurrentPlayer()}'s new location is ${this.getCurrentPlace()}`
+      `${this.getCurrentPlayer()}'s new location is ${this.getCurrentPlayerPlace()}`
     );
     console.log(`The category is ${this.currentCategory()}`);
     this.askQuestion();
@@ -161,7 +161,7 @@ export class Game {
     return this.goldCoins[this.currentPlayer];
   }
 
-  private getCurrentPlace() {
+  private getCurrentPlayerPlace() {
     return this.places[this.currentPlayer];
   }
 }
