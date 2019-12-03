@@ -21,12 +21,11 @@ export class Game {
 
   add(playerName) {
     this.players.push(new Player(playerName));
-
     console.log(`They are player number ${this.players.length}`);
   }
 
   currentCategory() {
-    switch (this.getCurrentPlayerPlace()) {
+    switch (this.getCurrentPlayer().place) {
       case 0:
       case 4:
       case 8: {
@@ -141,9 +140,5 @@ export class Game {
 
   private getCurrentPlayerGoldCoins() {
     return this.getCurrentPlayer().goldCoins;
-  }
-
-  private getCurrentPlayerPlace() {
-    return this.getCurrentPlayer().place;
   }
 }
