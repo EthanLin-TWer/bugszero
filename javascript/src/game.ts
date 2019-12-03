@@ -155,7 +155,7 @@ export class Game {
     return !(this.getCurrentPlayerGoldCoins() == 6);
   }
 
-  private getCurrentPlayer() {
+  private getCurrentPlayer(): Player {
     return this.players[this.currentPlayer];
   }
 
@@ -168,6 +168,6 @@ export class Game {
   }
 
   private getCurrentPlayerPlace() {
-    return this.places[this.currentPlayer];
+    return this.getCurrentPlayer().place;
   }
 }

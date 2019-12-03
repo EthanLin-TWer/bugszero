@@ -1,7 +1,7 @@
 export class Player {
   private readonly _name;
   private _goldCoins: number = 0;
-  private place: number = 0;
+  private _place: number = 0;
 
   constructor(name) {
     this._name = name;
@@ -25,11 +25,15 @@ export class Player {
 
   // place
   moveForward(places): void {
-    let result = this.place + places;
+    let result = this._place + places;
     if (result > 11) {
       result = result - 12;
     }
-    this.place = result;
+    this._place = result;
     // console.log(`${this.name}'s new location is ${this.place}`);
+  }
+
+  get place(): number {
+    return this._place;
   }
 }
