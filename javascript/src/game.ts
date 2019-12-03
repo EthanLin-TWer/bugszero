@@ -123,6 +123,10 @@ export class Game {
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
 
     this.getCurrentPlayer().increaseAGoldCoin();
+    return this.didCurrentPlayerWin();
+  }
+
+  private didCurrentPlayerWin() {
     return this.getCurrentPlayer().goldCoins !== 6;
   }
 
