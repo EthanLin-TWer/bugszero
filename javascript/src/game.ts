@@ -35,10 +35,6 @@ export class Game {
     console.log(`They are player number ${this.players.length}`);
   }
 
-  private getTotalPlayers() {
-    return this.players.length - 1;
-  }
-
   currentCategory() {
     switch (this.getCurrentPlayerPlace()) {
       case 0:
