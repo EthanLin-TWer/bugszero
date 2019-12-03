@@ -131,9 +131,7 @@ export class Game {
             " Gold Coins."
         );
 
-        var winner = !(this.value[this.currentPlayer] == 6);
-
-        return winner;
+        return !(this.value[this.currentPlayer] == 6);
       } else {
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
@@ -152,9 +150,7 @@ export class Game {
           " Gold Coins."
       );
 
-      var winner = !(this.value[this.currentPlayer] == 6);
-
-      return winner;
+      return !(this.value[this.currentPlayer] == 6);
     }
   }
 
