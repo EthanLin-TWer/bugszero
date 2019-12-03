@@ -76,10 +76,6 @@ export class Game {
     return "Rock Question " + index;
   }
 
-  isPlayable(howManyPlayers) {
-    return howManyPlayers >= 2 && howManyPlayers <= 6;
-  }
-
   roll(roll) {
     console.log(this.players[this.currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
