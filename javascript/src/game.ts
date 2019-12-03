@@ -116,10 +116,6 @@ export class Game {
     this.askQuestion();
   }
 
-  private getCurrentPlayer() {
-    return this.players[this.currentPlayer];
-  }
-
   wasCorrectlyAnswered() {
     if (this.inPenaltyBox[this.currentPlayer]) {
       if (this.isGettingOutOfPenaltyBox) {
@@ -132,6 +128,16 @@ export class Game {
     } else {
       return this.correctAnswer();
     }
+  }
+
+  wrongAnswer() {
+    console.log("Question was incorrectly answered");
+    console.log(`${this.getCurrentPlayer()} was sent to the penalty box`);
+    this.inPenaltyBox[this.currentPlayer] = true;
+
+    this.currentPlayer += 1;
+    if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+    return true;
   }
 
   private correctAnswer() {
@@ -147,18 +153,12 @@ export class Game {
     return !(this.getCurrentPlayerGoldCoins() == 6);
   }
 
-  private getCurrentPlayerGoldCoins() {
-    return this.goldCoins[this.currentPlayer];
+  private getCurrentPlayer() {
+    return this.players[this.currentPlayer];
   }
 
-  wrongAnswer() {
-    console.log("Question was incorrectly answered");
-    console.log(`${this.getCurrentPlayer()} was sent to the penalty box`);
-    this.inPenaltyBox[this.currentPlayer] = true;
-
-    this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-    return true;
+  private getCurrentPlayerGoldCoins() {
+    return this.goldCoins[this.currentPlayer];
   }
 
   private getCurrentPlace() {
