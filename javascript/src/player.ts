@@ -33,4 +33,8 @@ export class Player {
   get place(): number {
     return this._place;
   }
+
+  sendToPenaltyBox(): void {
+    this._isInPenaltyBox = true
+  }
 }
