@@ -105,9 +105,6 @@ export class Game {
 
   _moveCurrentPlayerForward(roll) {
     this.getCurrentPlayer().moveForward(roll);
-    console.log(
-      `${this.getCurrentPlayerName()}'s new location is ${this.getCurrentPlayerPlace()}`
-    );
   }
 
   wasCorrectlyAnswered() {

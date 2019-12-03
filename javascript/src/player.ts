@@ -30,7 +30,8 @@ export class Player {
       result = result - 12;
     }
     this._place = result;
-    // console.log(`${this.name}'s new location is ${this.place}`);
+
+    console.log(`${this.name}'s new location is ${this.place}`);
   }
 
   get place(): number {
