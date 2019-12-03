@@ -123,37 +123,30 @@ export class Game {
   wasCorrectlyAnswered() {
     if (this.inPenaltyBox[this.currentPlayer]) {
       if (this.isGettingOutOfPenaltyBox) {
-        console.log("Answer was correct!!!!");
-        this.currentPlayer += 1;
-        if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-
-        this.value[this.currentPlayer] += 1;
-        console.log(
-          `${this.getCurrentPlayer()} now has ${
-            this.value[this.currentPlayer]
-          } Gold Coins.`
-        );
-
-        return !(this.value[this.currentPlayer] == 6);
+        return this.correctAnswer();
       } else {
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
         return true;
       }
     } else {
-      console.log("Answer was correct!!!!");
-
-      this.currentPlayer += 1;
-      if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-      this.value[this.currentPlayer] += 1;
-      console.log(
-        `${this.getCurrentPlayer()} now has ${
-          this.value[this.currentPlayer]
-        } Gold Coins.`
-      );
-
-      return !(this.value[this.currentPlayer] == 6);
+      return this.correctAnswer();
     }
+  }
+
+  private correctAnswer() {
+    console.log("Answer was correct!!!!");
+    this.currentPlayer += 1;
+    if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+
+    this.value[this.currentPlayer] += 1;
+    console.log(
+      `${this.getCurrentPlayer()} now has ${
+        this.value[this.currentPlayer]
+      } Gold Coins.`
+    );
+
+    return !(this.value[this.currentPlayer] == 6);
   }
 
   wrongAnswer() {
