@@ -43,12 +43,12 @@ export class Game {
 
   currentCategory() {
     switch (this.getCurrentPlayerPlace()) {
-      case 0: {
+      case 0:
+      case 4:
+      case 8: {
         return "Pop";
       }
     }
-    if (this.getCurrentPlayerPlace() == 4) return "Pop";
-    if (this.getCurrentPlayerPlace() == 8) return "Pop";
     if (this.getCurrentPlayerPlace() == 1) return "Science";
     if (this.getCurrentPlayerPlace() == 5) return "Science";
     if (this.getCurrentPlayerPlace() == 9) return "Science";
