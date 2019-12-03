@@ -34,14 +34,18 @@ export class Game {
 
   add(playerName) {
     this.players.push(playerName);
-    this.places[this.players.length - 1] = 0;
-    this.value[this.players.length - 1] = 0;
-    this.inPenaltyBox[this.players.length - 1] = false;
+    this.places[this.getTotalPlayers()] = 0;
+    this.value[this.getTotalPlayers()] = 0;
+    this.inPenaltyBox[this.getTotalPlayers()] = false;
 
     console.log(`${playerName} was added`);
     console.log(`They are player number ${this.players.length}`);
 
     return true;
+  }
+
+  private getTotalPlayers() {
+    return this.players.length - 1;
   }
 
   currentCategory() {
