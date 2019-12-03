@@ -100,16 +100,20 @@ export class Game {
   }
 
   _movePlayerAndAskQuestion(roll) {
+    this._moveCurrentPlayerForward(roll);
+
+    console.log(`The category is ${this.currentCategory()}`);
+    this.askQuestion();
+  }
+
+  _moveCurrentPlayerForward(roll) {
     this.places[this.currentPlayer] = this.getCurrentPlayerPlace() + roll;
     if (this.getCurrentPlayerPlace() > 11) {
       this.places[this.currentPlayer] = this.getCurrentPlayerPlace() - 12;
     }
-
     console.log(
       `${this.getCurrentPlayerName()}'s new location is ${this.getCurrentPlayerPlace()}`
     );
-    console.log(`The category is ${this.currentCategory()}`);
-    this.askQuestion();
   }
 
   wasCorrectlyAnswered() {
