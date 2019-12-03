@@ -1,26 +1,16 @@
 import { Player } from "./player";
 
 export class Game {
-  rockQuestions: any[];
-  sportsQuestions: any[];
-  scienceQuestions: any[];
-  popQuestions: any[];
+  rockQuestions: string[] = [];
+  sportsQuestions: string[] = [];
+  scienceQuestions: string[] = [];
+  popQuestions: string[] = [];
 
-  players: any[];
-  currentPlayer: number;
-  isGettingOutOfPenaltyBox: boolean;
+  players: Player[] = [];
+  currentPlayer: number = 0;
+  isGettingOutOfPenaltyBox: boolean = false;
 
   constructor() {
-    this.players = [];
-
-    this.popQuestions = [];
-    this.scienceQuestions = [];
-    this.sportsQuestions = [];
-    this.rockQuestions = [];
-
-    this.currentPlayer = 0;
-    this.isGettingOutOfPenaltyBox = false;
-
     for (let i = 0; i < 50; i++) {
       this.popQuestions.push("Pop Question " + i);
       this.scienceQuestions.push("Science Question " + i);
