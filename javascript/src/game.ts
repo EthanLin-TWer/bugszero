@@ -6,14 +6,14 @@ export class Game {
   scienceQuestions: any[];
   inPenaltyBox: any[];
   popQuestions: any[];
-  purses: any[];
+  value: any[];
   places: any[];
   players: any[];
 
   constructor() {
     this.players = new Array();
     this.places = new Array(6);
-    this.purses = new Array(6);
+    this.value = new Array(6);
     this.inPenaltyBox = new Array(6);
 
     this.popQuestions = new Array();
@@ -34,22 +34,14 @@ export class Game {
 
   add(playerName) {
     this.players.push(playerName);
-    this.places[this.howManyPlayers() - 1] = 0;
-    this.purses[this.howManyPlayers() - 1] = 0;
-    this.inPenaltyBox[this.howManyPlayers() - 1] = false;
+    this.places[this.players.length - 1] = 0;
+    this.value[this.players.length - 1] = 0;
+    this.inPenaltyBox[this.players.length - 1] = false;
 
     console.log(playerName + " was added");
     console.log("They are player number " + this.players.length);
 
     return true;
-  }
-
-  howManyPlayers() {
-    return this.players.length;
-  }
-
-  didPlayerWin() {
-    return !(this.purses[this.currentPlayer] == 6);
   }
 
   currentCategory() {
@@ -85,7 +77,7 @@ export class Game {
   }
 
   isPlayable(howManyPlayers) {
-    return howManyPlayers >= 2;
+    return howManyPlayers >= 2 && howManyPlayers <= 6;
   }
 
   roll(roll) {
@@ -135,15 +127,15 @@ export class Game {
         this.currentPlayer += 1;
         if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
 
-        this.purses[this.currentPlayer] += 1;
+        this.value[this.currentPlayer] += 1;
         console.log(
           this.players[this.currentPlayer] +
             " now has " +
-            this.purses[this.currentPlayer] +
+            this.value[this.currentPlayer] +
             " Gold Coins."
         );
 
-        var winner = this.didPlayerWin();
+        var winner = !(this.value[this.currentPlayer] == 6);
 
         return winner;
       } else {
@@ -156,15 +148,15 @@ export class Game {
 
       this.currentPlayer += 1;
       if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-      this.purses[this.currentPlayer] += 1;
+      this.value[this.currentPlayer] += 1;
       console.log(
         this.players[this.currentPlayer] +
           " now has " +
-          this.purses[this.currentPlayer] +
+          this.value[this.currentPlayer] +
           " Gold Coins."
       );
 
-      var winner = this.didPlayerWin();
+      var winner = !(this.value[this.currentPlayer] == 6);
 
       return winner;
     }
