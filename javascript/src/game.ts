@@ -145,12 +145,16 @@ export class Game {
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
 
     this.goldCoins[this.currentPlayer] += 1;
-    this.players[this.currentPlayer].increaseAGoldCoin()
+    this.getCurrentPlayer().increaseAGoldCoin();
     console.log(
       `${this.getCurrentPlayerName()} now has ${this.getCurrentPlayerGoldCoins()} Gold Coins.`
     );
 
     return !(this.getCurrentPlayerGoldCoins() == 6);
+  }
+
+  private getCurrentPlayer() {
+    return this.players[this.currentPlayer];
   }
 
   private getCurrentPlayerName() {
