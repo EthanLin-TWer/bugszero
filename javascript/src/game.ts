@@ -80,7 +80,7 @@ export class Game {
   }
 
   roll(roll) {
-    console.log(`${this.getCurrentPlayer()} is the current player`);
+    console.log(`${this.getCurrentPlayerName()} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
     if (this.inPenaltyBox[this.currentPlayer]) {
@@ -88,12 +88,12 @@ export class Game {
         this.isGettingOutOfPenaltyBox = true;
 
         console.log(
-          `${this.getCurrentPlayer()} is getting out of the penalty box`
+          `${this.getCurrentPlayerName()} is getting out of the penalty box`
         );
         this._movePlayerAndAskQuestion(roll);
       } else {
         console.log(
-          `${this.getCurrentPlayer()} is not getting out of the penalty box`
+          `${this.getCurrentPlayerName()} is not getting out of the penalty box`
         );
         this.isGettingOutOfPenaltyBox = false;
       }
@@ -109,7 +109,7 @@ export class Game {
     }
 
     console.log(
-      `${this.getCurrentPlayer()}'s new location is ${this.getCurrentPlayerPlace()}`
+      `${this.getCurrentPlayerName()}'s new location is ${this.getCurrentPlayerPlace()}`
     );
     console.log(`The category is ${this.currentCategory()}`);
     this.askQuestion();
@@ -131,7 +131,7 @@ export class Game {
 
   wrongAnswer() {
     console.log("Question was incorrectly answered");
-    console.log(`${this.getCurrentPlayer()} was sent to the penalty box`);
+    console.log(`${this.getCurrentPlayerName()} was sent to the penalty box`);
     this.inPenaltyBox[this.currentPlayer] = true;
 
     this.currentPlayer += 1;
@@ -146,13 +146,13 @@ export class Game {
 
     this.goldCoins[this.currentPlayer] += 1;
     console.log(
-      `${this.getCurrentPlayer()} now has ${this.getCurrentPlayerGoldCoins()} Gold Coins.`
+      `${this.getCurrentPlayerName()} now has ${this.getCurrentPlayerGoldCoins()} Gold Coins.`
     );
 
     return !(this.getCurrentPlayerGoldCoins() == 6);
   }
 
-  private getCurrentPlayer() {
+  private getCurrentPlayerName() {
     return this.players[this.currentPlayer].name;
   }
 
