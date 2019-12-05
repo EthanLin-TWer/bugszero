@@ -91,7 +91,10 @@ export class Game {
   }
 
   wasCorrectlyAnswered() {
-    return this.correctAnswer();
+    console.log("Answer was correct!!!!");
+
+    this.getCurrentPlayer().increaseAGoldCoin();
+    return this.didCurrentPlayerWin();
   }
 
   wrongAnswer() {
@@ -99,13 +102,6 @@ export class Game {
     this.getCurrentPlayer().sentToPenaltyBox();
 
     return true;
-  }
-
-  private correctAnswer() {
-    console.log("Answer was correct!!!!");
-
-    this.getCurrentPlayer().increaseAGoldCoin();
-    return this.didCurrentPlayerWin();
   }
 
   setNextPlayer() {
