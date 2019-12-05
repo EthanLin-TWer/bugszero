@@ -143,19 +143,5 @@ export class Game {
 }
 
 export function startTheGame(game, randomInt) {
-  let notAWinner = false;
-
-  do {
-    const shouldAnswerQuestion = game.roll(randomInt(6));
-    const isGivingCorrectAnswer = randomInt(10) == 7;
-
-    if (shouldAnswerQuestion) {
-      if (isGivingCorrectAnswer) {
-        notAWinner = game.wrongAnswer();
-      } else {
-        notAWinner = game.correctAnswer();
-      }
-    }
-    game.setNextPlayer();
-  } while (notAWinner);
+  game.start(randomInt)
 }
