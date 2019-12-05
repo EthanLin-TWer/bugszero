@@ -127,8 +127,8 @@ export class Game {
     let notAWinner = false;
 
     do {
-      const shouldAnswerQuestion = this.roll(simulator.simulateRolling(6));
-      const isGivingCorrectAnswer = simulator.simulateAnswering(10) == 7;
+      const shouldAnswerQuestion = this.roll(newSimulator.simulateRolling());
+      const isGivingCorrectAnswer = newSimulator.simulateAnswering();
 
       if (shouldAnswerQuestion) {
         if (isGivingCorrectAnswer) {
