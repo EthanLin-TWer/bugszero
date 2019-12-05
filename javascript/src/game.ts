@@ -123,12 +123,12 @@ export class Game {
     return this.getCurrentPlayer().name;
   }
 
-  start(newSimulator): void {
+  start(simulator): void {
     let notAWinner = false;
 
     do {
-      const shouldAnswerQuestion = this.roll(newSimulator.simulateRolling());
-      const isGivingCorrectAnswer = newSimulator.simulateAnswering();
+      const shouldAnswerQuestion = this.roll(simulator.simulateRolling());
+      const isGivingCorrectAnswer = simulator.simulateAnswering();
 
       if (shouldAnswerQuestion) {
         if (isGivingCorrectAnswer) {
