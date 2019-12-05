@@ -122,4 +122,40 @@ export class Game {
   private getCurrentPlayerName() {
     return this.getCurrentPlayer().name;
   }
+
+  start(randomInt): void {
+    let notAWinner = false;
+
+    do {
+      const shouldAnswerQuestion = this.roll(randomInt(6));
+      const isGivingCorrectAnswer = randomInt(10) == 7;
+
+      if (shouldAnswerQuestion) {
+        if (isGivingCorrectAnswer) {
+          notAWinner = this.wrongAnswer();
+        } else {
+          notAWinner = this.correctAnswer();
+        }
+      }
+      this.setNextPlayer();
+    } while (notAWinner);
+  }
+}
+
+export function startTheGame(game, randomInt) {
+  let notAWinner = false;
+
+  do {
+    const shouldAnswerQuestion = game.roll(randomInt(6));
+    const isGivingCorrectAnswer = randomInt(10) == 7;
+
+    if (shouldAnswerQuestion) {
+      if (isGivingCorrectAnswer) {
+        notAWinner = game.wrongAnswer();
+      } else {
+        notAWinner = game.correctAnswer();
+      }
+    }
+    game.setNextPlayer();
+  } while (notAWinner);
 }
