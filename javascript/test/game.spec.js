@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
 const { gameRunner } = require("../src/game-runner");
-const { Simulator } = require("./simulator");
+const { Simulator } = require("../src/simulator");
 const expected = require("./expected");
 
 describe("The game", function() {

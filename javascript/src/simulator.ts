@@ -1007,7 +1007,7 @@ function getRandom(upperLimit) {
   return Math.ceil(seeds[i] * upperLimit);
 }
 
-class Simulator {
+export class Simulator {
   simulateRolling() {
     return getRandom(6);
   }
@@ -1016,5 +1016,3 @@ class Simulator {
     return getRandom(10) === 7;
   }
 }
-
-module.exports = { Simulator };

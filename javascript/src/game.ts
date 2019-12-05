@@ -1,4 +1,5 @@
 import { Player } from "./player";
+import { Simulator } from "./simulator";
 
 export class Game {
   rockQuestions: string[] = [];
@@ -123,7 +124,7 @@ export class Game {
     return this.getCurrentPlayer().name;
   }
 
-  start(simulator): void {
+  start(simulator: Simulator): void {
     let notAWinner = false;
 
     do {
