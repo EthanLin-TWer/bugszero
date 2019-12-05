@@ -103,6 +103,7 @@ export class Game {
       return this.correctAnswer();
     }
   }
+
   wrongAnswer() {
     console.log("Question was incorrectly answered");
     this.getCurrentPlayer().sentToPenaltyBox();
