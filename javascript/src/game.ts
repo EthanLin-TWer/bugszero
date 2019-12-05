@@ -109,7 +109,7 @@ export class Game {
 
   wrongAnswer() {
     console.log("Question was incorrectly answered");
-    this.getCurrentPlayer().sendToPenaltyBox();
+    this.getCurrentPlayer().sentToPenaltyBox();
 
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;

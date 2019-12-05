@@ -37,7 +37,7 @@ export class Player {
   }
 
   // is penalty box
-  sendToPenaltyBox(): void {
+  sentToPenaltyBox(): void {
     this._isInPenaltyBox = true;
 
     console.log(`${this._name} was sent to the penalty box`);
