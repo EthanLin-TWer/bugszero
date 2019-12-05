@@ -90,7 +90,7 @@ export class Game {
     this.askQuestion();
   }
 
-  wasCorrectlyAnswered() {
+  correctAnswer() {
     console.log("Answer was correct!!!!");
 
     this.getCurrentPlayer().increaseAGoldCoin();
