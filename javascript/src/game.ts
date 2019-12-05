@@ -96,31 +96,34 @@ export class Game {
       if (this.isGettingOutOfPenaltyBox) {
         return this.correctAnswer();
       } else {
-        this.currentPlayer += 1;
-        if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+        this.setNextPlayer();
         return true;
       }
     } else {
       return this.correctAnswer();
     }
   }
-
   wrongAnswer() {
     console.log("Question was incorrectly answered");
     this.getCurrentPlayer().sentToPenaltyBox();
 
-    this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+    this.setNextPlayer();
     return true;
   }
 
   private correctAnswer() {
     console.log("Answer was correct!!!!");
-    this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
+    this.setNextPlayer();
 
     this.getCurrentPlayer().increaseAGoldCoin();
     return this.didCurrentPlayerWin();
+  }
+
+  private setNextPlayer() {
+    this.currentPlayer += 1;
+    if (this.currentPlayer == this.players.length) {
+      this.currentPlayer = 0;
+    }
   }
 
   private didCurrentPlayerWin() {
