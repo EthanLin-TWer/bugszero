@@ -1,14 +1,8 @@
 import { Game } from "./game";
 
-export function gameRunner(randomInt) {
-  // a simulator of a game
-  const game = new Game();
-
-  game.add("Chet");
-  game.add("Pat");
-  game.add("Sue");
-
+function startTheGame(game, randomInt) {
   let notAWinner = false;
+
   do {
     const shouldAnswerQuestion = game.roll(randomInt(6));
     const isGivingCorrectAnswer = randomInt(10) == 7;
@@ -22,4 +16,15 @@ export function gameRunner(randomInt) {
     }
     game.setNextPlayer();
   } while (notAWinner);
+}
+
+export function gameRunner(randomInt) {
+  // a simulator of a game
+  const game = new Game();
+
+  game.add("Chet");
+  game.add("Pat");
+  game.add("Sue");
+
+  startTheGame(game, randomInt);
 }
