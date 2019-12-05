@@ -1001,18 +1001,19 @@ const seeds = [
   0.53
 ];
 
-let i = -1;
-function getRandom(upperLimit) {
-  i++;
-  return Math.ceil(seeds[i] * upperLimit);
-}
-
 export class Simulator {
+  private static GLOBAL_COUNTER: number = -1;
+
   simulateRolling() {
-    return getRandom(6);
+    return this.getRandom(6);
   }
 
   simulateAnswering() {
-    return getRandom(10) === 7;
+    return this.getRandom(10) === 7;
+  }
+
+  getRandom(upperLimit) {
+    Simulator.GLOBAL_COUNTER++;
+    return Math.ceil(seeds[Simulator.GLOBAL_COUNTER] * upperLimit);
   }
 }
