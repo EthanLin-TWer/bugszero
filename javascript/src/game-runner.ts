@@ -14,12 +14,12 @@ export function gameRunner(randomInt) {
   do {
     const shouldAnswerQuestion = game.roll(randomInt(6));
 
-    if (randomInt(10) == 7) {
+    const randomToSimulateAnswerCorrectness = randomInt(10) == 7;
+    if (randomToSimulateAnswerCorrectness) {
       notAWinner = game.wrongAnswer();
-      game.setNextPlayer();
     } else {
       notAWinner = game.wasCorrectlyAnswered();
-      game.setNextPlayer();
     }
+    game.setNextPlayer();
   } while (notAWinner);
 }
