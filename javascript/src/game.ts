@@ -73,9 +73,7 @@ export class Game {
       if (roll % 2 != 0) {
         this.isGettingOutOfPenaltyBox = true;
 
-        console.log(
-          `${this.getCurrentPlayerName()} is getting out of the penalty box`
-        );
+        this.getCurrentPlayer().freedFromPenaltyBox();
         this._movePlayerAndAskQuestion(roll);
       } else {
         console.log(
