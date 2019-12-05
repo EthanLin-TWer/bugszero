@@ -65,7 +65,7 @@ export class Game {
     return `Rock Question ${index}`;
   }
 
-  roll(roll) {
+  roll(roll): boolean {
     console.log(`${this.getCurrentPlayerName()} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
@@ -75,14 +75,17 @@ export class Game {
 
         this.getCurrentPlayer().freedFromPenaltyBox();
         this._movePlayerAndAskQuestion(roll);
+        return true;
       } else {
         console.log(
           `${this.getCurrentPlayerName()} is not getting out of the penalty box`
         );
         this.isGettingOutOfPenaltyBox = false;
+        return false;
       }
     } else {
       this._movePlayerAndAskQuestion(roll);
+      return true;
     }
   }
 

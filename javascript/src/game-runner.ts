@@ -12,7 +12,7 @@ export function gameRunner(randomInt) {
   game.add("Sue");
 
   do {
-    game.roll(randomInt(6));
+    const shouldAnswerQuestion = game.roll(randomInt(6));
 
     if (randomInt(10) == 7) {
       notAWinner = game.wrongAnswer();
