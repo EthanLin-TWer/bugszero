@@ -91,11 +91,7 @@ export class Game {
   }
 
   wasCorrectlyAnswered() {
-    if (this.getCurrentPlayer().isInPenaltyBox) {
-      return this.correctAnswer();
-    } else {
-      return this.correctAnswer();
-    }
+    return this.correctAnswer();
   }
 
   wrongAnswer() {
