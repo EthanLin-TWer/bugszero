@@ -99,7 +99,6 @@ export class Game {
       if (this.isGettingOutOfPenaltyBox) {
         return this.correctAnswer();
       } else {
-        this.setNextPlayer();
         return true;
       }
     } else {
@@ -116,7 +115,6 @@ export class Game {
 
   private correctAnswer() {
     console.log("Answer was correct!!!!");
-    this.setNextPlayer();
 
     this.getCurrentPlayer().increaseAGoldCoin();
     return this.didCurrentPlayerWin();

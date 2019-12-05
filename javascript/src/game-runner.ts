@@ -19,6 +19,7 @@ export function gameRunner(randomInt) {
       game.setNextPlayer();
     } else {
       notAWinner = game.wasCorrectlyAnswered();
+      game.setNextPlayer();
     }
   } while (notAWinner);
 }
