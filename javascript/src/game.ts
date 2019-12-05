@@ -129,13 +129,11 @@ export class Game {
 
     do {
       const rolling = simulator.simulateRolling();
-      const isCorrectAnswer = simulator.simulateAnswering();
+      const isWrongAnswer = simulator.simulateAnswering();
 
       const shouldAnswerQuestionThisRound = this.roll(rolling);
       if (shouldAnswerQuestionThisRound) {
-        notAWinner = isCorrectAnswer
-          ? this.wrongAnswer()
-          : this.correctAnswer();
+        notAWinner = isWrongAnswer ? this.wrongAnswer() : this.correctAnswer();
       }
       this.setNextPlayer();
     } while (notAWinner);
