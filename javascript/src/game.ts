@@ -142,6 +142,3 @@ export class Game {
   }
 }
 
-export function startTheGame(game, randomInt) {
-  game.start(randomInt)
-}
