@@ -8,7 +8,6 @@ export class Game {
 
   players: Player[] = [];
   currentPlayer: number = 0;
-  isGettingOutOfPenaltyBox: boolean = false;
 
   constructor() {
     for (let i = 0; i < 50; i++) {
@@ -71,8 +70,6 @@ export class Game {
 
     if (this.getCurrentPlayer().isInPenaltyBox) {
       if (roll % 2 != 0) {
-        this.isGettingOutOfPenaltyBox = true;
-
         this.getCurrentPlayer().freedFromPenaltyBox();
         this._movePlayerAndAskQuestion(roll);
         return true;
@@ -80,7 +77,6 @@ export class Game {
         console.log(
           `${this.getCurrentPlayerName()} is not getting out of the penalty box`
         );
-        this.isGettingOutOfPenaltyBox = false;
         return false;
       }
     } else {
@@ -96,7 +92,7 @@ export class Game {
 
   wasCorrectlyAnswered() {
     if (this.getCurrentPlayer().isInPenaltyBox) {
-      if (this.isGettingOutOfPenaltyBox) {
+      if (this.getCurrentPlayer().isInPenaltyBox) {
         return this.correctAnswer();
       } else {
         return true;
