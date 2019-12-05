@@ -1006,8 +1006,6 @@ function getRandom(upperLimit) {
   i++;
   return Math.ceil(seeds[i] * upperLimit);
 }
-const simulateRolling = getRandom;
-const simulateAnswering = getRandom;
 
 class Simulator {
   simulateRolling() {
@@ -1019,4 +1017,4 @@ class Simulator {
   }
 }
 
-module.exports = { simulateRolling, simulateAnswering, Simulator };
+module.exports = { Simulator };
