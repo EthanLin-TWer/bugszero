@@ -133,11 +133,9 @@ export class Game {
 
       const shouldAnswerQuestionThisRound = this.roll(rolling);
       if (shouldAnswerQuestionThisRound) {
-        if (isCorrectAnswer) {
-          notAWinner = this.wrongAnswer();
-        } else {
-          notAWinner = this.correctAnswer();
-        }
+        notAWinner = isCorrectAnswer
+          ? this.wrongAnswer()
+          : this.correctAnswer();
       }
       this.setNextPlayer();
     } while (notAWinner);
