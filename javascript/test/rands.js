@@ -5,5 +5,7 @@ function getRandom(upperLimit) {
   i++;
   return Math.ceil(seeds[i] * upperLimit);
 }
+const simulateRolling = getRandom;
+const simulateAnswering = getRandom;
 
-module.exports = { getRandom };
+module.exports = { getRandom, simulateRolling, simulateAnswering };

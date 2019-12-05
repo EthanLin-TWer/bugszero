@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
 const { gameRunner } = require("../src/game-runner");
-const { getRandom } = require("./rands");
+const simulator = require("./rands");
 const expected = require("./expected");
 
 describe("The game", function() {
@@ -13,7 +13,7 @@ describe("The game", function() {
     };
 
     _.range(15).forEach(() => {
-      gameRunner(getRandom);
+      gameRunner(simulator);
     });
 
     console.log = oldLog;
