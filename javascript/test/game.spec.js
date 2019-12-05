@@ -13,7 +13,7 @@ describe("The game", function() {
     };
 
     _.range(15).forEach(() => {
-      gameRunner(simulator);
+      gameRunner(simulator, new simulator.Simulator());
     });
 
     console.log = oldLog;

@@ -123,7 +123,7 @@ export class Game {
     return this.getCurrentPlayer().name;
   }
 
-  start(simulator): void {
+  start(simulator, newSimulator): void {
     let notAWinner = false;
 
     do {
