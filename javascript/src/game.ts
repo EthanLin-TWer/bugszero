@@ -24,7 +24,22 @@ export class Game {
     console.log(`They are player number ${this.players.length}`);
   }
 
-  currentCategory() {
+  start(simulator: Simulator): void {
+    let notAWinner = false;
+
+    do {
+      const rolling = simulator.simulateRolling();
+      const isWrongAnswer = simulator.simulateAnswering();
+
+      const shouldAnswerQuestionThisRound = this.roll(rolling);
+      if (shouldAnswerQuestionThisRound) {
+        notAWinner = isWrongAnswer ? this.wrongAnswer() : this.correctAnswer();
+      }
+      this.setNextPlayer();
+    } while (notAWinner);
+  }
+
+  private currentCategory() {
     switch (this.getCurrentPlayer().place) {
       case 0:
       case 4:
@@ -45,7 +60,7 @@ export class Game {
     return "Rock";
   }
 
-  askQuestion() {
+  private askQuestion() {
     console.log(`The category is ${this.currentCategory()}`);
     if (this.currentCategory() == "Pop") {
       console.log(this.popQuestions.shift());
@@ -61,11 +76,11 @@ export class Game {
     }
   }
 
-  createRockQuestion(index) {
+  private createRockQuestion(index) {
     return `Rock Question ${index}`;
   }
 
-  roll(roll): boolean {
+  private roll(roll): boolean {
     console.log(`${this.getCurrentPlayerName()} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
@@ -86,26 +101,26 @@ export class Game {
     }
   }
 
-  _movePlayerAndAskQuestion(roll) {
+  private _movePlayerAndAskQuestion(roll) {
     this.getCurrentPlayer().moveForward(roll);
     this.askQuestion();
   }
 
-  correctAnswer() {
+  private correctAnswer() {
     console.log("Answer was correct!!!!");
 
     this.getCurrentPlayer().increaseAGoldCoin();
     return this.didCurrentPlayerWin();
   }
 
-  wrongAnswer() {
+  private wrongAnswer() {
     console.log("Question was incorrectly answered");
     this.getCurrentPlayer().sentToPenaltyBox();
 
     return true;
   }
 
-  setNextPlayer() {
+  private setNextPlayer() {
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) {
       this.currentPlayer = 0;
@@ -122,20 +137,5 @@ export class Game {
 
   private getCurrentPlayerName() {
     return this.getCurrentPlayer().name;
-  }
-
-  start(simulator: Simulator): void {
-    let notAWinner = false;
-
-    do {
-      const rolling = simulator.simulateRolling();
-      const isWrongAnswer = simulator.simulateAnswering();
-
-      const shouldAnswerQuestionThisRound = this.roll(rolling);
-      if (shouldAnswerQuestionThisRound) {
-        notAWinner = isWrongAnswer ? this.wrongAnswer() : this.correctAnswer();
-      }
-      this.setNextPlayer();
-    } while (notAWinner);
   }
 }
