@@ -18,6 +18,7 @@ describe("The game", function() {
 
     console.log = oldLog;
 
+    console.log(JSON.stringify(loggedLines, "utf-8", 0));
     expect(loggedLines).toEqual(expected);
   });
 });
