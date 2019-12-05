@@ -22,8 +22,8 @@ export class Player {
     console.log(`${this.name} now has ${this._goldCoins} Gold Coins.`);
   }
 
-  get goldCoins(): number {
-    return this._goldCoins;
+  didWin(): boolean {
+    return this._goldCoins !== 6;
   }
 
   // place

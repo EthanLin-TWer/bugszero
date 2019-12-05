@@ -127,7 +127,7 @@ export class Game {
   }
 
   private didCurrentPlayerWin() {
-    return this.getCurrentPlayer().goldCoins !== 6;
+    return this.getCurrentPlayer().didWin();
   }
 
   private getCurrentPlayer(): Player {
