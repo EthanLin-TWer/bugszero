@@ -15,10 +15,12 @@ export function gameRunner(randomInt) {
     const shouldAnswerQuestion = game.roll(randomInt(6));
 
     const randomToSimulateAnswerCorrectness = randomInt(10) == 7;
-    if (randomToSimulateAnswerCorrectness) {
-      notAWinner = game.wrongAnswer();
-    } else {
-      notAWinner = game.wasCorrectlyAnswered();
+    if (shouldAnswerQuestion) {
+      if (randomToSimulateAnswerCorrectness) {
+        notAWinner = game.wrongAnswer();
+      } else {
+        notAWinner = game.wasCorrectlyAnswered();
+      }
     }
     game.setNextPlayer();
   } while (notAWinner);
