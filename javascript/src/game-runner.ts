@@ -13,10 +13,10 @@ export function gameRunner(randomInt) {
 
   do {
     const shouldAnswerQuestion = game.roll(randomInt(6));
+    const isGivingCorrectAnswer = randomInt(10) == 7;
 
-    const randomToSimulateAnswerCorrectness = randomInt(10) == 7;
     if (shouldAnswerQuestion) {
-      if (randomToSimulateAnswerCorrectness) {
+      if (isGivingCorrectAnswer) {
         notAWinner = game.wrongAnswer();
       } else {
         notAWinner = game.wasCorrectlyAnswered();
