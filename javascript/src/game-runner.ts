@@ -16,6 +16,7 @@ export function gameRunner(randomInt) {
 
     if (randomInt(10) == 7) {
       notAWinner = game.wrongAnswer();
+      game.setNextPlayer();
     } else {
       notAWinner = game.wasCorrectlyAnswered();
     }

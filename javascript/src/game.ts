@@ -111,7 +111,6 @@ export class Game {
     console.log("Question was incorrectly answered");
     this.getCurrentPlayer().sentToPenaltyBox();
 
-    this.setNextPlayer();
     return true;
   }
 
@@ -123,7 +122,7 @@ export class Game {
     return this.didCurrentPlayerWin();
   }
 
-  private setNextPlayer() {
+  setNextPlayer() {
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) {
       this.currentPlayer = 0;
