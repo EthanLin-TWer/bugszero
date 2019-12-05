@@ -1009,4 +1009,14 @@ function getRandom(upperLimit) {
 const simulateRolling = getRandom;
 const simulateAnswering = getRandom;
 
-module.exports = { simulateRolling, simulateAnswering };
+class Simulator {
+  simulateRolling() {
+    return getRandom(6);
+  }
+
+  simulateAnswering() {
+    return getRandom(10) === 7;
+  }
+}
+
+module.exports = { simulateRolling, simulateAnswering, Simulator };
