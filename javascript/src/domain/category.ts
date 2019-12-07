@@ -6,3 +6,12 @@ export const Categories = {
   History: "History",
   Blues: "Blues"
 };
+
+export enum Category {
+  Pop,
+  Science,
+  Sports,
+  Rock,
+  History,
+  Blues
+}
