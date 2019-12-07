@@ -32,20 +32,9 @@ export class Game {
     } while (notAWinner);
   }
 
-  private currentCategory(place: number) {
-    // @ts-ignore
-    const questionTypes = Object.values(Categories);
-    const result = questionTypes[place % questionTypes.length];
-
-    console.log(`The category is ${result}`);
-    return result;
-  }
-
   private askQuestion(): void {
     const position = this.getCurrentPlayer().place;
-    const nextQuestion = this.questionManager.temp_getQuestion(
-      position
-    );
+    const nextQuestion = this.questionManager.getQuestion(position);
 
     console.log(nextQuestion);
   }
