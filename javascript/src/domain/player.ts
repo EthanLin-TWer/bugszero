@@ -1,3 +1,5 @@
+import { GameConfig } from "../game-config";
+
 export class Player {
   private readonly _name;
   private _goldCoins: number = 0;
@@ -28,7 +30,7 @@ export class Player {
 
   // place
   moveForward(places): void {
-    this._place = (this._place + places) % 12;
+    this._place = (this._place + places) % GameConfig.QUESTION_DECKS;
     console.log(`${this.name}'s new location is ${this.place}`);
   }
 
