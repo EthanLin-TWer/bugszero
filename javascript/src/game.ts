@@ -12,8 +12,8 @@ export const Categories = {
 };
 
 export class Game {
-  players: Player[] = [];
-  currentPlayer: number = 0;
+  private players: Player[] = [];
+  private currentPlayer: number = 0;
   private questionManager: QuestionManager;
 
   constructor() {
