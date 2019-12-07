@@ -5,7 +5,9 @@ const QuestionTypes = {
   Pop: "Pop",
   Science: "Science",
   Sports: "Sports",
-  Rock: "Rock"
+  Rock: "Rock",
+  History: "History",
+  Blues: "Blues"
 };
 
 export class Game {
@@ -13,7 +15,9 @@ export class Game {
     [QuestionTypes.Rock]: [],
     [QuestionTypes.Sports]: [],
     [QuestionTypes.Pop]: [],
-    [QuestionTypes.Science]: []
+    [QuestionTypes.Science]: [],
+    [QuestionTypes.History]: [],
+    [QuestionTypes.Blues]: []
   };
 
   players: Player[] = [];
