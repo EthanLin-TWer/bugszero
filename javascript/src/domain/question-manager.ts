@@ -17,8 +17,8 @@ export class QuestionManager {
   private initQuestions() {
     for (let i = 0; i < 50; i++) {
       // @ts-ignore
-      for (const questionType of Object.values(Categories)) {
-        this.questions[questionType].push(createQuestion(questionType, i));
+      for (const category of Object.values(Categories)) {
+        this.questions[category].push(createQuestion(category, i));
       }
     }
 
@@ -28,7 +28,7 @@ export class QuestionManager {
   }
 
   public getNextQuestion(position: number) {
-    const currentCategory = Category.in(position);
-    return this.questions[currentCategory].shift();
+    const category = Category.in(position);
+    return this.questions[category].shift();
   }
 }
