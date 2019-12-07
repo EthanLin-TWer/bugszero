@@ -1,4 +1,4 @@
-import { Categories, Category } from "./category";
+import {Categories, Category, Temp_Categories} from "./category";
 
 export class QuestionManager {
   private questions: object = {
@@ -11,13 +11,12 @@ export class QuestionManager {
   };
 
   constructor() {
-    this.initQuestions();
-  }
+    // @ts-ignore
+    const categories = Object.values(Temp_Categories);
+    const another = categories.slice(0, categories.length / 2);
 
-  private initQuestions() {
     for (let i = 0; i < 50; i++) {
-      // @ts-ignore
-      for (const category of Object.values(Categories)) {
+      for (const category of another) {
         this.questions[category].push(createQuestion(category, i));
       }
     }

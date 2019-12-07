@@ -7,7 +7,7 @@ export const Categories = {
   Blues: "Blues"
 };
 
-enum Temp_Categories {
+export enum Temp_Categories {
   Pop,
   Science,
   Sports,
