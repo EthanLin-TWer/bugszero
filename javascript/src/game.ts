@@ -50,18 +50,17 @@ export class Game {
     } while (notAWinner);
   }
 
-  private askQuestion() {
-    function currentCategory(place: number) {
-      // @ts-ignore
-      const questionTypes = Object.values(QuestionTypes);
-      return questionTypes[place % questionTypes.length];
-    }
+  private currentCategory() {
+    // @ts-ignore
+    const questionTypes = Object.values(QuestionTypes);
+    return questionTypes[this.getCurrentPlayer().place % questionTypes.length];
+  }
 
-    const currentPlace = this.getCurrentPlayer().place;
-    console.log(`The category is ${currentCategory(currentPlace)}`);
+  private askQuestion() {
+    console.log(`The category is ${this.currentCategory()}`);
 
     const nextQuestion = this.questionManager.getQuestion(
-      currentCategory(currentPlace)
+      this.currentCategory()
     );
     console.log(nextQuestion);
   }
