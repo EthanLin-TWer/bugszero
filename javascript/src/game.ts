@@ -2,12 +2,11 @@ import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
 
 export class Game {
-  scienceQuestions: string[] = [];
-  historyQuestions: string[] = [];
   questions: object = {
     rocks: [],
     sports: [],
-    pops: []
+    pops: [],
+    sciences: []
   };
 
   players: Player[] = [];
@@ -17,8 +16,8 @@ export class Game {
     for (let i = 0; i < 50; i++) {
       // @ts-ignore
       this.questions.pops.push("Pop Question " + i);
-      this.scienceQuestions.push("Science Question " + i);
-      this.historyQuestions.push("History Question " + i);
+      // @ts-ignore
+      this.questions.sciences.push("Science Question " + i);
       // @ts-ignore
       this.questions.sports.push("Sports Question " + i);
       // @ts-ignore
@@ -58,7 +57,8 @@ export class Game {
       console.log(this.questions.pops.shift());
     }
     if (this.currentCategory() == "Science") {
-      console.log(this.scienceQuestions.shift());
+      // @ts-ignore
+      console.log(this.questions.sciences.shift());
     }
     if (this.currentCategory() == "Sports") {
       // @ts-ignore
