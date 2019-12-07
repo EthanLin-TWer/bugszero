@@ -2,10 +2,10 @@ export class Deck {
   private readonly _category: string;
   private questions: Array<string>;
 
-  constructor(category: string) {
+  constructor(category: string, size: number) {
     this._category = category;
     // @ts-ignore
-    this.questions = Array.from({ length: 50 }).map((_, i) =>
+    this.questions = Array.from({ length: size }).map((_, i) =>
       Deck.createQuestion(category, i)
     );
   }

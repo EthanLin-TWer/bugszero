@@ -8,7 +8,7 @@ export class Game {
   private questionManager: QuestionManager;
 
   constructor() {
-    this.questionManager = new QuestionManager();
+    this.questionManager = new QuestionManager(50);
   }
 
   add(playerName) {

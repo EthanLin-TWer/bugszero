@@ -4,8 +4,10 @@ import { Deck } from "./deck";
 export class QuestionManager {
   private decks: Array<Deck>;
 
-  constructor() {
-    this.decks = Categories.values().map(category => new Deck(category));
+  constructor(questionsPerDeck: number) {
+    this.decks = Categories.values().map(
+      category => new Deck(category, questionsPerDeck)
+    );
   }
 
   public getNextQuestion(position: number) {
