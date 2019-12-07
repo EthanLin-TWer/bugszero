@@ -21,11 +21,23 @@ export class Game {
 
   constructor() {
     for (let i = 0; i < 50; i++) {
-      this.questions[QuestionTypes.Pop].push(`Pop Question ${i}`);
-      this.questions[QuestionTypes.Science].push(`Science Question ${i}`);
-      this.questions[QuestionTypes.Sports].push(`Sports Question ${i}`);
-      this.questions[QuestionTypes.Rock].push(`Rock Question ${i}`);
+      this.questions[QuestionTypes.Pop].push(
+        this.createQuestion(QuestionTypes.Pop, i)
+      );
+      this.questions[QuestionTypes.Science].push(
+        this.createQuestion(QuestionTypes.Science, i)
+      );
+      this.questions[QuestionTypes.Sports].push(
+        this.createQuestion(QuestionTypes.Sports, i)
+      );
+      this.questions[QuestionTypes.Rock].push(
+        this.createQuestion(QuestionTypes.Rock, i)
+      );
     }
+  }
+
+  private createQuestion(questionType: string, i: number) {
+    return `${questionType} Question ${i}`;
   }
 
   add(playerName) {
