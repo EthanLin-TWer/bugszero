@@ -49,15 +49,8 @@ export class Game {
   }
 
   private currentCategory() {
-    const questionTypes = [
-      QuestionTypes.Pop,
-      QuestionTypes.Science,
-      QuestionTypes.Sports,
-      QuestionTypes.Rock
-    ];
-
-    // TODO: [Linesh][2019/12/7] refactor this
-    return questionTypes[
+    // @ts-ignore
+    return Object.values(QuestionTypes)[
       this.getCurrentPlayer().place % Object.keys(QuestionTypes).length
     ];
   }
