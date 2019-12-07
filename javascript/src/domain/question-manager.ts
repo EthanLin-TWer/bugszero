@@ -1,4 +1,4 @@
-import { Categories } from "./category";
+import { Categories, Category } from "./category";
 
 export class QuestionManager {
   private questions: object = {
@@ -28,16 +28,7 @@ export class QuestionManager {
   }
 
   public getNextQuestion(position: number) {
-    const currentCategory = this.currentCategory(position);
+    const currentCategory = Category.in(position);
     return this.questions[currentCategory].shift();
-  }
-
-  private currentCategory(place: number) {
-    // @ts-ignore
-    const questionTypes = Object.values(Categories);
-    const result = questionTypes[place % questionTypes.length];
-
-    console.log(`The category is ${result}`);
-    return result;
   }
 }

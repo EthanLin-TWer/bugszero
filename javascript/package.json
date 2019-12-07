@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^12.12.14",
     "approvals": "^2.1.2",
     "chai": "^3.5.0",
     "jest": "^24.9.0",
