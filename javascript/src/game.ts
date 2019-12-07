@@ -1,4 +1,4 @@
-import { Player } from "./player";
+import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
 
 export class Game {
