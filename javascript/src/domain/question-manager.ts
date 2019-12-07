@@ -1,33 +1,21 @@
-import { Category } from "./category";
+import { Categories, Category } from "./category";
 import { Deck } from "./deck";
 
 export class QuestionManager {
-  private readonly questions: object;
+  private decks: Array<Deck>;
 
   constructor() {
-    this.questions = {
-      [Category.Pop]: new Deck(Category.Pop),
-      [Category.Science]: new Deck(Category.Science),
-      [Category.Sports]: new Deck(Category.Sports),
-      [Category.Rock]: new Deck(Category.Rock),
-      [Category.History]: new Deck(Category.History),
-      [Category.Blues]: new Deck(Category.Blues)
-    };
+    this.decks = Categories.values().map(category => new Deck(category));
   }
 
   public getNextQuestion(position: number) {
-    const category = this.getCategoryIn(position);
-    const deck = this.getDeck(category);
+    const category: Category = Categories.in(position);
+    const deck: Deck = this.findDeck(category);
     return deck.getNextQuestion();
   }
 
-  private getCategoryIn(position: number): Category {
+  private findDeck(category: Category): Deck {
     // @ts-ignore
-    const categories = Object.values(Category);
-    return categories[position % categories.length];
-  }
-
-  private getDeck(category: Category) {
-    return this.questions[category];
+    return this.decks.find(deck => deck.category === category);
   }
 }

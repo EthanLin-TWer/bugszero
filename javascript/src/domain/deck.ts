@@ -1,9 +1,9 @@
 export class Deck {
-  private category: string;
+  private readonly _category: string;
   private questions: Array<string>;
 
   constructor(category: string) {
-    this.category = category;
+    this._category = category;
     // @ts-ignore
     this.questions = Array.from({ length: 50 }).map((_, i) =>
       Deck.createQuestion(category, i)
@@ -14,8 +14,12 @@ export class Deck {
     return `${categoryName} Question ${i}`;
   }
 
+  public get category(): string {
+    return this._category;
+  }
+
   public getNextQuestion() {
-    console.log(`The category is ${this.category}`);
+    console.log(`The category is ${this._category}`);
     return this.questions.shift();
   }
 }
