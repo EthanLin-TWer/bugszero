@@ -30,4 +30,18 @@ export class QuestionManager {
   public getQuestion(category: string) {
     return this.questions[category].shift();
   }
+
+  private currentCategory(place: number) {
+    // @ts-ignore
+    const questionTypes = Object.values(Categories);
+    const result = questionTypes[place % questionTypes.length];
+
+    console.log(`The category is ${result}`);
+    return result;
+  }
+
+  public temp_getQuestion(position: number) {
+    const currentCategory = this.currentCategory(position);
+    return this.getQuestion(currentCategory);
+  }
 }
