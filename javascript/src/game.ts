@@ -1,13 +1,14 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
-import { GameConfig } from "./game-config";
 
 export class Game {
-  rockQuestions: string[] = [];
   sportsQuestions: string[] = [];
   scienceQuestions: string[] = [];
   popQuestions: string[] = [];
   historyQuestions: string[] = [];
+  questions: object = {
+    rocks: [],
+  }
 
   players: Player[] = [];
   currentPlayer: number = 0;
@@ -18,7 +19,8 @@ export class Game {
       this.scienceQuestions.push("Science Question " + i);
       this.sportsQuestions.push("Sports Question " + i);
       this.historyQuestions.push("History Question " + i);
-      this.rockQuestions.push(this.createRockQuestion(i));
+      // @ts-ignore
+      this.questions.rocks.push(this.createRockQuestion(i))
     }
   }
 
@@ -59,7 +61,8 @@ export class Game {
       console.log(this.sportsQuestions.shift());
     }
     if (this.currentCategory() == "Rock") {
-      console.log(this.rockQuestions.shift());
+      // @ts-ignore
+      console.log(this.questions.rocks.shift());
     }
   }
 
