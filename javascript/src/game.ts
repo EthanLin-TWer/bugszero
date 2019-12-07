@@ -1,7 +1,8 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
+import { QuestionManager } from "./domain/question-manager";
 
-const QuestionTypes = {
+export const QuestionTypes = {
   Pop: "Pop",
   Science: "Science",
   Sports: "Sports",
@@ -22,9 +23,11 @@ export class Game {
 
   players: Player[] = [];
   currentPlayer: number = 0;
+  private questionManager: QuestionManager;
 
   constructor() {
     this.initQuestions();
+    this.questionManager = new QuestionManager();
   }
 
   private initQuestions() {
