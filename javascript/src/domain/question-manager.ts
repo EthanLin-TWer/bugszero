@@ -27,4 +27,7 @@ export class QuestionManager {
     }
   }
 
+  public getQuestion(category: string) {
+    return this.questions[category].shift();
+  }
 }

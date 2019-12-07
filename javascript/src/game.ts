@@ -60,7 +60,9 @@ export class Game {
     const currentPlace = this.getCurrentPlayer().place;
     console.log(`The category is ${currentCategory(currentPlace)}`);
 
-    const nextQuestion = this.questions[currentCategory(currentPlace)].shift();
+    const nextQuestion = this.questionManager.getQuestion(
+      currentCategory(currentPlace)
+    );
     console.log(nextQuestion);
   }
 
