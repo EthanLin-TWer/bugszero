@@ -24,7 +24,7 @@ export class Game {
       this.questions[QuestionTypes.Pop].push("Pop Question " + i);
       this.questions[QuestionTypes.Science].push("Science Question " + i);
       this.questions[QuestionTypes.Sports].push("Sports Question " + i);
-      this.questions[QuestionTypes.Rock].push(this.createRockQuestion(i));
+      this.questions[QuestionTypes.Rock].push(`Rock Question ${i}`);
     }
   }
 
@@ -60,10 +60,6 @@ export class Game {
 
     const nextQuestion = this.questions[this.currentCategory()].shift();
     console.log(nextQuestion);
-  }
-
-  private createRockQuestion(index) {
-    return `Rock Question ${index}`;
   }
 
   private roll(roll): boolean {
