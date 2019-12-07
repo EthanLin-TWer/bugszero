@@ -21,13 +21,9 @@ export class Game {
 
   constructor() {
     for (let i = 0; i < 50; i++) {
-      // @ts-ignore
       this.questions[QuestionTypes.Pop].push("Pop Question " + i);
-      // @ts-ignore
       this.questions[QuestionTypes.Science].push("Science Question " + i);
-      // @ts-ignore
       this.questions[QuestionTypes.Sports].push("Sports Question " + i);
-      // @ts-ignore
       this.questions[QuestionTypes.Rock].push(this.createRockQuestion(i));
     }
   }
@@ -69,19 +65,15 @@ export class Game {
   private askQuestion() {
     console.log(`The category is ${this.currentCategory()}`);
     if (this.currentCategory() == "Pop") {
-      // @ts-ignore
       console.log(this.questions[QuestionTypes.Pop].shift());
     }
     if (this.currentCategory() == "Science") {
-      // @ts-ignore
       console.log(this.questions[QuestionTypes.Science].shift());
     }
     if (this.currentCategory() == "Sports") {
-      // @ts-ignore
       console.log(this.questions[QuestionTypes.Sports].shift());
     }
     if (this.currentCategory() == "Rock") {
-      // @ts-ignore
       console.log(this.questions[QuestionTypes.Rock].shift());
     }
   }
