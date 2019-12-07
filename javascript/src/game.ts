@@ -21,9 +21,9 @@ export class Game {
 
   constructor() {
     for (let i = 0; i < 50; i++) {
-      this.questions[QuestionTypes.Pop].push("Pop Question " + i);
-      this.questions[QuestionTypes.Science].push("Science Question " + i);
-      this.questions[QuestionTypes.Sports].push("Sports Question " + i);
+      this.questions[QuestionTypes.Pop].push(`Pop Question ${i}`);
+      this.questions[QuestionTypes.Science].push(`Science Question ${i}`);
+      this.questions[QuestionTypes.Sports].push(`Sports Question ${i}`);
       this.questions[QuestionTypes.Rock].push(`Rock Question ${i}`);
     }
   }
