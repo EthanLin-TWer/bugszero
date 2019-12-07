@@ -1,5 +1,6 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
+import { GameConfig } from "./game-config";
 
 export class Game {
   rockQuestions: string[] = [];
@@ -42,31 +43,8 @@ export class Game {
   }
 
   private currentCategory() {
-    switch (this.getCurrentPlayer().place) {
-      case 0:
-      case 4:
-      case 8: {
-        return "Pop";
-      }
-      case 1:
-      case 5:
-      case 9: {
-        return "Science";
-      }
-      case 2:
-      case 6:
-      case 10: {
-        return "Sports";
-      }
-      case 3:
-      case 7:
-      case 11: {
-        return "Rock";
-      }
-      default: {
-        throw new Error("error");
-      }
-    }
+    const questionTypes = ["Pop", "Science", "Sports", "Rock"];
+    return questionTypes[this.getCurrentPlayer().place % questionTypes.length];
   }
 
   private askQuestion() {
