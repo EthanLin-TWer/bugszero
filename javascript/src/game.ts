@@ -3,11 +3,11 @@ import { Simulator } from "./simulator";
 
 export class Game {
   scienceQuestions: string[] = [];
-  popQuestions: string[] = [];
   historyQuestions: string[] = [];
   questions: object = {
     rocks: [],
-    sports: []
+    sports: [],
+    pops: []
   };
 
   players: Player[] = [];
@@ -15,7 +15,8 @@ export class Game {
 
   constructor() {
     for (let i = 0; i < 50; i++) {
-      this.popQuestions.push("Pop Question " + i);
+      // @ts-ignore
+      this.questions.pops.push("Pop Question " + i);
       this.scienceQuestions.push("Science Question " + i);
       this.historyQuestions.push("History Question " + i);
       // @ts-ignore
@@ -53,7 +54,8 @@ export class Game {
   private askQuestion() {
     console.log(`The category is ${this.currentCategory()}`);
     if (this.currentCategory() == "Pop") {
-      console.log(this.popQuestions.shift());
+      // @ts-ignore
+      console.log(this.questions.pops.shift());
     }
     if (this.currentCategory() == "Science") {
       console.log(this.scienceQuestions.shift());
