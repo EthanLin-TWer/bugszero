@@ -12,22 +12,12 @@ export const QuestionTypes = {
 };
 
 export class Game {
-  questions: object = {
-    [QuestionTypes.Rock]: [],
-    [QuestionTypes.Sports]: [],
-    [QuestionTypes.Pop]: [],
-    [QuestionTypes.Science]: [],
-    [QuestionTypes.History]: [],
-    [QuestionTypes.Blues]: []
-  };
-
   players: Player[] = [];
   currentPlayer: number = 0;
   private questionManager: QuestionManager;
 
   constructor() {
     this.questionManager = new QuestionManager();
-    this.questions = this.questionManager.questions;
   }
 
   add(playerName) {
@@ -57,11 +47,10 @@ export class Game {
   }
 
   private askQuestion() {
-    console.log(`The category is ${this.currentCategory()}`);
+    const currentCategory = this.currentCategory();
+    console.log(`The category is ${currentCategory}`);
 
-    const nextQuestion = this.questionManager.getQuestion(
-      this.currentCategory()
-    );
+    const nextQuestion = this.questionManager.getQuestion(currentCategory);
     console.log(nextQuestion);
   }
 
