@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-const { gameRunner } = require("../src/game-runner");
+const { Game } = require("../src/game");
 const { Simulator } = require("../src/simulator");
 const expected = require("./expected");
 
@@ -13,7 +13,13 @@ describe("The game", function() {
     };
 
     _.range(15).forEach(() => {
-      gameRunner(new Simulator());
+      const game = new Game();
+
+      game.add("Chet");
+      game.add("Pat");
+      game.add("Sue");
+
+      game.start(new Simulator());
     });
 
     console.log = oldLog;

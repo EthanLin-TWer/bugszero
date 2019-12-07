@@ -6,6 +6,7 @@ export class Game {
   sportsQuestions: string[] = [];
   scienceQuestions: string[] = [];
   popQuestions: string[] = [];
+  historyQuestions: string[] = [];
 
   players: Player[] = [];
   currentPlayer: number = 0;
@@ -15,6 +16,7 @@ export class Game {
       this.popQuestions.push("Pop Question " + i);
       this.scienceQuestions.push("Science Question " + i);
       this.sportsQuestions.push("Sports Question " + i);
+      this.historyQuestions.push("History Question " + i);
       this.rockQuestions.push(this.createRockQuestion(i));
     }
   }
@@ -56,8 +58,15 @@ export class Game {
       case 10: {
         return "Sports";
       }
+      case 3:
+      case 7:
+      case 11: {
+        return "Rock";
+      }
+      default: {
+        throw new Error("error");
+      }
     }
-    return "Rock";
   }
 
   private askQuestion() {
