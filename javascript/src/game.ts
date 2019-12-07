@@ -21,18 +21,10 @@ export class Game {
 
   constructor() {
     for (let i = 0; i < 50; i++) {
-      this.questions[QuestionTypes.Pop].push(
-        this.createQuestion(QuestionTypes.Pop, i)
-      );
-      this.questions[QuestionTypes.Science].push(
-        this.createQuestion(QuestionTypes.Science, i)
-      );
-      this.questions[QuestionTypes.Sports].push(
-        this.createQuestion(QuestionTypes.Sports, i)
-      );
-      this.questions[QuestionTypes.Rock].push(
-        this.createQuestion(QuestionTypes.Rock, i)
-      );
+      // @ts-ignore
+      for (const questionType of Object.values(QuestionTypes)) {
+        this.questions[questionType].push(this.createQuestion(questionType, i));
+      }
     }
   }
 
