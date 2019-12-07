@@ -1,15 +1,7 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
 import { QuestionManager } from "./domain/question-manager";
-
-export const Categories = {
-  Pop: "Pop",
-  Science: "Science",
-  Sports: "Sports",
-  Rock: "Rock",
-  History: "History",
-  Blues: "Blues"
-};
+import { Categories } from "./domain/category";
 
 export class Game {
   private players: Player[] = [];

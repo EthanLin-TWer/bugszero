@@ -1,4 +1,4 @@
-import { Categories } from "../game";
+import { Categories } from "./category";
 
 export class QuestionManager {
   private questions: object = {
