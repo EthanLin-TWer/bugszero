@@ -1,6 +1,13 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
 
+const QuestionTypes = {
+  Pop: "Pop",
+  Science: "Science",
+  Sports: "Sports",
+  Rock: "Rock"
+};
+
 export class Game {
   questions: object = {
     rocks: [],
@@ -46,8 +53,17 @@ export class Game {
   }
 
   private currentCategory() {
-    const questionTypes = ["Pop", "Science", "Sports", "Rock"];
-    return questionTypes[this.getCurrentPlayer().place % questionTypes.length];
+    const questionTypes = [
+      QuestionTypes.Pop,
+      QuestionTypes.Science,
+      QuestionTypes.Sports,
+      QuestionTypes.Rock
+    ];
+
+    // TODO: [Linesh][2019/12/7] refactor this
+    return questionTypes[
+      this.getCurrentPlayer().place % Object.keys(QuestionTypes).length
+    ];
   }
 
   private askQuestion() {
