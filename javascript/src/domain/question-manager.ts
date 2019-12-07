@@ -1,13 +1,13 @@
-import { QuestionTypes } from "../game";
+import { Categories } from "../game";
 
 export class QuestionManager {
   private questions: object = {
-    [QuestionTypes.Rock]: [],
-    [QuestionTypes.Sports]: [],
-    [QuestionTypes.Pop]: [],
-    [QuestionTypes.Science]: [],
-    [QuestionTypes.History]: [],
-    [QuestionTypes.Blues]: []
+    [Categories.Rock]: [],
+    [Categories.Sports]: [],
+    [Categories.Pop]: [],
+    [Categories.Science]: [],
+    [Categories.History]: [],
+    [Categories.Blues]: []
   };
 
   constructor() {
@@ -17,7 +17,7 @@ export class QuestionManager {
   private initQuestions() {
     for (let i = 0; i < 50; i++) {
       // @ts-ignore
-      for (const questionType of Object.values(QuestionTypes)) {
+      for (const questionType of Object.values(Categories)) {
         this.questions[questionType].push(createQuestion(questionType, i));
       }
     }

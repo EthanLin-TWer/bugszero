@@ -2,7 +2,7 @@ import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
 import { QuestionManager } from "./domain/question-manager";
 
-export const QuestionTypes = {
+export const Categories = {
   Pop: "Pop",
   Science: "Science",
   Sports: "Sports",
@@ -42,7 +42,7 @@ export class Game {
 
   private currentCategory() {
     // @ts-ignore
-    const questionTypes = Object.values(QuestionTypes);
+    const questionTypes = Object.values(Categories);
     return questionTypes[this.getCurrentPlayer().place % questionTypes.length];
   }
 
