@@ -43,13 +43,15 @@ export class Game {
   private currentCategory() {
     // @ts-ignore
     const questionTypes = Object.values(Categories);
-    return questionTypes[this.getCurrentPlayer().place % questionTypes.length];
+    const result =
+      questionTypes[this.getCurrentPlayer().place % questionTypes.length];
+
+    console.log(`The category is ${result}`);
+    return result;
   }
 
-  private askQuestion() {
+  private askQuestion(): void {
     const currentCategory = this.currentCategory();
-    console.log(`The category is ${currentCategory}`);
-
     const nextQuestion = this.questionManager.getQuestion(currentCategory);
     console.log(nextQuestion);
   }
