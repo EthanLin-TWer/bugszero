@@ -1,33 +1,33 @@
-import {Categories, Category, Temp_Categories} from "./category";
+import { Category } from "./category";
+import { Deck } from "./deck";
 
 export class QuestionManager {
-  private questions: object = {
-    [Categories.Rock]: [],
-    [Categories.Sports]: [],
-    [Categories.Pop]: [],
-    [Categories.Science]: [],
-    [Categories.History]: [],
-    [Categories.Blues]: []
-  };
+  private readonly questions: object;
 
   constructor() {
-    // @ts-ignore
-    const categories = Object.values(Temp_Categories);
-    const another = categories.slice(0, categories.length / 2);
-
-    for (let i = 0; i < 50; i++) {
-      for (const category of another) {
-        this.questions[category].push(createQuestion(category, i));
-      }
-    }
-
-    function createQuestion(questionType: string, i: number) {
-      return `${questionType} Question ${i}`;
-    }
+    this.questions = {
+      [Category.Pop]: new Deck(Category.Pop),
+      [Category.Science]: new Deck(Category.Science),
+      [Category.Sports]: new Deck(Category.Sports),
+      [Category.Rock]: new Deck(Category.Rock),
+      [Category.History]: new Deck(Category.History),
+      [Category.Blues]: new Deck(Category.Blues)
+    };
   }
 
   public getNextQuestion(position: number) {
-    const category = Category.in(position);
-    return this.questions[category].shift();
+    const category = this.getCategoryIn(position);
+    const deck = this.getDeck(category);
+    return deck.getNextQuestion();
+  }
+
+  private getCategoryIn(position: number): Category {
+    // @ts-ignore
+    const categories = Object.values(Category);
+    return categories[position % categories.length];
+  }
+
+  private getDeck(category: Category) {
+    return this.questions[category];
   }
 }
