@@ -2,7 +2,7 @@
   "name": "trivia",
   "version": "1.0.0",
   "description": "Test with node.js =====================",
-  "main": "game-runner.js",
+  "main": "test/game.spec.js",
   "scripts": {
     "compile": "tsc -w",
     "test": "jest",
