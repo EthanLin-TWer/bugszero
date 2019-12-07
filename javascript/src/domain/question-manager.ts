@@ -1,7 +1,7 @@
 import { QuestionTypes } from "../game";
 
 export class QuestionManager {
-  public questions: object = {
+  private questions: object = {
     [QuestionTypes.Rock]: [],
     [QuestionTypes.Sports]: [],
     [QuestionTypes.Pop]: [],
