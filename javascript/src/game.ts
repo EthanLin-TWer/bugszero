@@ -26,21 +26,8 @@ export class Game {
   private questionManager: QuestionManager;
 
   constructor() {
-    this.initQuestions();
     this.questionManager = new QuestionManager();
-  }
-
-  private initQuestions() {
-    for (let i = 0; i < 50; i++) {
-      // @ts-ignore
-      for (const questionType of Object.values(QuestionTypes)) {
-        this.questions[questionType].push(createQuestion(questionType, i));
-      }
-    }
-
-    function createQuestion(questionType: string, i: number) {
-      return `${questionType} Question ${i}`;
-    }
+    this.questions = this.questionManager.questions;
   }
 
   add(playerName) {
