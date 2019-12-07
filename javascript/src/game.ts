@@ -64,18 +64,9 @@ export class Game {
 
   private askQuestion() {
     console.log(`The category is ${this.currentCategory()}`);
-    if (this.currentCategory() == "Pop") {
-      console.log(this.questions[QuestionTypes.Pop].shift());
-    }
-    if (this.currentCategory() == "Science") {
-      console.log(this.questions[QuestionTypes.Science].shift());
-    }
-    if (this.currentCategory() == "Sports") {
-      console.log(this.questions[QuestionTypes.Sports].shift());
-    }
-    if (this.currentCategory() == "Rock") {
-      console.log(this.questions[QuestionTypes.Rock].shift());
-    }
+
+    const nextQuestion = this.questions[this.currentCategory()].shift();
+    console.log(nextQuestion);
   }
 
   private createRockQuestion(index) {
