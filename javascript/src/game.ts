@@ -10,7 +10,7 @@ const QuestionTypes = {
 
 export class Game {
   questions: object = {
-    rocks: [],
+    [QuestionTypes.Rock]: [],
     sports: [],
     pops: [],
     sciences: []
@@ -28,7 +28,7 @@ export class Game {
       // @ts-ignore
       this.questions.sports.push("Sports Question " + i);
       // @ts-ignore
-      this.questions.rocks.push(this.createRockQuestion(i));
+      this.questions[QuestionTypes.Rock].push(this.createRockQuestion(i));
     }
   }
 
@@ -82,7 +82,7 @@ export class Game {
     }
     if (this.currentCategory() == "Rock") {
       // @ts-ignore
-      console.log(this.questions.rocks.shift());
+      console.log(this.questions[QuestionTypes.Rock].shift());
     }
   }
 
