@@ -1,7 +1,6 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
 import { QuestionManager } from "./domain/question-manager";
-import { Categories } from "./domain/category";
 
 export class Game {
   private players: Player[] = [];
@@ -33,10 +32,11 @@ export class Game {
   }
 
   private askQuestion(): void {
-    const position = this.getCurrentPlayer().place;
-    const nextQuestion = this.questionManager.getQuestion(position);
+    const question = this.questionManager.getNextQuestion(
+      this.getCurrentPlayer().place
+    );
 
-    console.log(nextQuestion);
+    console.log(question);
   }
 
   private roll(roll): boolean {

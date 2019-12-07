@@ -27,6 +27,11 @@ export class QuestionManager {
     }
   }
 
+  public getNextQuestion(position: number) {
+    const currentCategory = this.currentCategory(position);
+    return this.questions[currentCategory].shift();
+  }
+
   private currentCategory(place: number) {
     // @ts-ignore
     const questionTypes = Object.values(Categories);
@@ -34,10 +39,5 @@ export class QuestionManager {
 
     console.log(`The category is ${result}`);
     return result;
-  }
-
-  public getQuestion(position: number) {
-    const currentCategory = this.currentCategory(position);
-    return this.questions[currentCategory].shift();
   }
 }
