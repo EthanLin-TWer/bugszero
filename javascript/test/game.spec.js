@@ -27,11 +27,7 @@ describe("The game", function() {
 
   it("should work ;-)", function() {
     _.range(15).forEach(() => {
-      const game = new Game();
-
-      game.add("Chet");
-      game.add("Pat");
-      game.add("Sue");
+      const game = new Game("Chet", "Pat", "Sue");
 
       game.start(new KnowledgeableSimulator());
     });
@@ -40,11 +36,7 @@ describe("The game", function() {
   });
 
   it.skip("should never run out of deck questions", function() {
-    const game = new Game();
-
-    game.add("Chet");
-    game.add("Pat");
-    game.add("Sue");
+    const game = new Game("Chet", "Pat", "Sue");
 
     game.start(new IlliterateSimulator());
 

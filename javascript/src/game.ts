@@ -3,17 +3,17 @@ import { GameSimulator } from "./gameSimulator";
 import { Decks } from "./domain/decks";
 
 export class Game {
-  private players: Player[] = [];
+  private readonly players: Player[] = [];
   private currentPlayer: number = 0;
   private decks: Decks;
 
-  constructor() {
+  constructor(...playerNames: Array<string>) {
     this.decks = new Decks(50);
-  }
-
-  add(playerName) {
-    this.players.push(new Player(playerName));
-    console.log(`They are player number ${this.players.length}`);
+    this.players = playerNames.map((name, i) => {
+      const player = new Player(name);
+      console.log(`They are player number ${i + 1}`);
+      return player;
+    });
   }
 
   start(simulator: GameSimulator): void {
