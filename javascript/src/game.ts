@@ -49,8 +49,7 @@ export class Game {
   }
 
   private askQuestion(): void {
-    const position = this.currentPlayer.place;
-    const question = this.decks.getNextQuestion(position);
+    const question = this.decks.getNextQuestion(this.currentPlayer.place);
     console.log(question);
   }
 
