@@ -37,13 +37,14 @@ export class Game {
     console.log(`They have rolled a ${roll}`);
 
     if (!this.getCurrentPlayer().isInPenaltyBox) {
-      this._movePlayerAndAskQuestion(roll);
+      this.getCurrentPlayer().moveForward(roll);
       return true;
     }
 
-    if (roll % 2 != 0) {
+    const isGettingOutOfPenaltyBox = roll % 2 !== 0;
+    if (isGettingOutOfPenaltyBox) {
       this.getCurrentPlayer().freedFromPenaltyBox();
-      this._movePlayerAndAskQuestion(roll);
+      this.getCurrentPlayer().moveForward(roll);
       return true;
     }
 
@@ -78,10 +79,6 @@ export class Game {
     const position = this.getCurrentPlayer().place;
     const question = this.decks.getNextQuestion(position);
     console.log(question);
-  }
-
-  private _movePlayerAndAskQuestion(roll) {
-    this.getCurrentPlayer().moveForward(roll);
   }
 
   private didCurrentPlayerWin() {
