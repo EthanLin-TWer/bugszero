@@ -33,4 +33,14 @@ describe("The game", function() {
 
     expect(result).toEqual(expected);
   });
+
+  it("should never run out of deck questions", function() {
+    const game = new Game();
+
+    game.add("Chet");
+    game.add("Pat");
+    game.add("Sue");
+
+    game.start(new Simulator());
+  });
 });
