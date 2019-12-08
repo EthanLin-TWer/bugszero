@@ -52,6 +52,12 @@ export class Game {
     return false;
   }
 
+  private askQuestion(): void {
+    const position = this.getCurrentPlayer().place;
+    const question = this.decks.getNextQuestion(position);
+    console.log(question);
+  }
+
   private correctAnswer(): boolean {
     console.log("Answer was correct!!!!");
 
@@ -71,12 +77,6 @@ export class Game {
     if (this.currentPlayer == this.players.length) {
       this.currentPlayer = 0;
     }
-  }
-
-  private askQuestion(): void {
-    const position = this.getCurrentPlayer().place;
-    const question = this.decks.getNextQuestion(position);
-    console.log(question);
   }
 
   private didCurrentPlayerWin() {
