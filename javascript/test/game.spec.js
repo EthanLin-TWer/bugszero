@@ -5,13 +5,22 @@ const { Simulator } = require("../src/simulator");
 const expected = require("./expected");
 
 describe("The game", function() {
-  it("should work ;-)", function() {
-    const loggedLines = [];
-    const oldLog = console.log;
+  let vanillaConsoleLog;
+  let result;
+  beforeEach(() => {
+    result = [];
+    vanillaConsoleLog = console.log;
     console.log = function(arg) {
-      loggedLines.push(arg);
+      result.push(arg);
     };
+  });
 
+  afterEach(() => {
+    console.log = vanillaConsoleLog;
+    console.log(JSON.stringify(result, "utf-8", 0));
+  });
+
+  it("should work ;-)", function() {
     _.range(15).forEach(() => {
       const game = new Game();
 
@@ -22,9 +31,6 @@ describe("The game", function() {
       game.start(new Simulator());
     });
 
-    console.log = oldLog;
-
-    console.log(JSON.stringify(loggedLines, "utf-8", 0));
-    expect(loggedLines).toEqual(expected);
+    expect(result).toEqual(expected);
   });
 });
