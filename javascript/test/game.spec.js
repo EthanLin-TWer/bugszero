@@ -1,7 +1,9 @@
 const _ = require("lodash");
 
 const { Game } = require("../src/game");
-const { Simulator } = require("../src/simulator");
+const {
+  KnowledgeableSimulator
+} = require("../src/simulators/knowledgeable-simulator");
 const expected = require("./expected");
 
 describe("The game", function() {
@@ -28,7 +30,7 @@ describe("The game", function() {
       game.add("Pat");
       game.add("Sue");
 
-      game.start(new Simulator());
+      game.start(new KnowledgeableSimulator());
     });
 
     expect(result).toEqual(expected);
@@ -41,6 +43,6 @@ describe("The game", function() {
     game.add("Pat");
     game.add("Sue");
 
-    game.start(new Simulator());
+    // game.start(new Simulator());
   });
 });
