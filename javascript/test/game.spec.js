@@ -4,6 +4,9 @@ const { Game } = require("../src/game");
 const {
   KnowledgeableSimulator
 } = require("../src/simulators/knowledgeable-simulator");
+const {
+  IlliterateSimulator
+} = require("../src/simulators/illiterate-simulator");
 const expected = require("./expected");
 
 describe("The game", function() {
@@ -19,7 +22,7 @@ describe("The game", function() {
 
   afterEach(() => {
     console.log = vanillaConsoleLog;
-    console.log(JSON.stringify(result, "utf-8", 0));
+    // console.log(JSON.stringify(result, "utf-8", 0));
   });
 
   it("should work ;-)", function() {
@@ -36,13 +39,15 @@ describe("The game", function() {
     expect(result).toEqual(expected);
   });
 
-  it("should never run out of deck questions", function() {
+  it.skip("should never run out of deck questions", function() {
     const game = new Game();
 
     game.add("Chet");
     game.add("Pat");
     game.add("Sue");
 
-    // game.start(new Simulator());
+    game.start(new IlliterateSimulator());
+
+    expect(result).toEqual(expected);
   });
 });
