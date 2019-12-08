@@ -25,6 +25,7 @@ export class Game {
 
       const shouldAnswerQuestionThisRound = this.roll(rolling);
       if (shouldAnswerQuestionThisRound) {
+        this.askQuestion();
         notAWinner = isWrongAnswer ? this.wrongAnswer() : this.correctAnswer();
       }
       this.setNextPlayer();
@@ -81,7 +82,6 @@ export class Game {
 
   private _movePlayerAndAskQuestion(roll) {
     this.getCurrentPlayer().moveForward(roll);
-    this.askQuestion();
   }
 
   private didCurrentPlayerWin() {
