@@ -1,6 +1,7 @@
 import { Player } from "./domain/player";
 import { GameSimulator } from "./gameSimulator";
 import { Decks } from "./domain/decks";
+import { Players } from "./domain/players";
 
 export class Game {
   private readonly players: Player[] = [];
@@ -8,12 +9,8 @@ export class Game {
   private decks: Decks;
 
   constructor(...playerNames: Array<string>) {
+    this.players = new Players(...playerNames).players;
     this.decks = new Decks(50);
-    this.players = playerNames.map((name, i) => {
-      const player = new Player(name);
-      console.log(`They are player number ${i + 1}`);
-      return player;
-    });
   }
 
   start(simulator: GameSimulator): void {
