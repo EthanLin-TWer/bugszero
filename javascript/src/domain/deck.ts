@@ -1,8 +1,10 @@
+import { Category } from "./category";
+
 export class Deck {
-  private readonly _category: string;
+  private readonly _category: Category;
   private questions: Array<string>;
 
-  constructor(category: string, size: number) {
+  constructor(category: Category, size: number) {
     this._category = category;
     // @ts-ignore
     this.questions = Array.from({ length: size }).map(
