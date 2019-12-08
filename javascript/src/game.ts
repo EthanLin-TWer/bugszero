@@ -31,12 +31,6 @@ export class Game {
     } while (notAWinner);
   }
 
-  private askQuestion(): void {
-    const position = this.getCurrentPlayer().place;
-    const question = this.decks.getNextQuestion(position);
-    console.log(question);
-  }
-
   private roll(roll): boolean {
     console.log(`${this.getCurrentPlayerName()} is the current player`);
     console.log(`They have rolled a ${roll}`);
@@ -58,11 +52,6 @@ export class Game {
     }
   }
 
-  private _movePlayerAndAskQuestion(roll) {
-    this.getCurrentPlayer().moveForward(roll);
-    this.askQuestion();
-  }
-
   private correctAnswer() {
     console.log("Answer was correct!!!!");
 
@@ -82,6 +71,17 @@ export class Game {
     if (this.currentPlayer == this.players.length) {
       this.currentPlayer = 0;
     }
+  }
+
+  private askQuestion(): void {
+    const position = this.getCurrentPlayer().place;
+    const question = this.decks.getNextQuestion(position);
+    console.log(question);
+  }
+
+  private _movePlayerAndAskQuestion(roll) {
+    this.getCurrentPlayer().moveForward(roll);
+    this.askQuestion();
   }
 
   private didCurrentPlayerWin() {
