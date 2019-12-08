@@ -35,21 +35,21 @@ export class Game {
     console.log(`${this.getCurrentPlayerName()} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
-    if (this.getCurrentPlayer().isInPenaltyBox) {
-      if (roll % 2 != 0) {
-        this.getCurrentPlayer().freedFromPenaltyBox();
-        this._movePlayerAndAskQuestion(roll);
-        return true;
-      } else {
-        console.log(
-          `${this.getCurrentPlayerName()} is not getting out of the penalty box`
-        );
-        return false;
-      }
-    } else {
+    if (!this.getCurrentPlayer().isInPenaltyBox) {
       this._movePlayerAndAskQuestion(roll);
       return true;
     }
+
+    if (roll % 2 != 0) {
+      this.getCurrentPlayer().freedFromPenaltyBox();
+      this._movePlayerAndAskQuestion(roll);
+      return true;
+    }
+
+    console.log(
+      `${this.getCurrentPlayerName()} is not getting out of the penalty box`
+    );
+    return false;
   }
 
   private correctAnswer(): boolean {
