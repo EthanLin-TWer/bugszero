@@ -1,11 +1,11 @@
 import { Player } from "./domain/player";
-import { GameSimulator } from "./gameSimulator";
 import { Decks } from "./domain/decks";
 import { Players } from "./domain/players";
+import { GameSimulator } from "./gameSimulator";
 
 export class Game {
   private readonly players: Players;
-  private decks: Decks;
+  private readonly decks: Decks;
 
   constructor(...playerNames: Array<string>) {
     this.players = new Players(...playerNames);
@@ -24,7 +24,7 @@ export class Game {
         this.askQuestion();
         notAWinner = isWrongAnswer ? this.wrongAnswer() : this.correctAnswer();
       }
-      this.setNextPlayer();
+      this.players.setNextPlayer();
     } while (notAWinner);
   }
 
@@ -66,10 +66,6 @@ export class Game {
 
     this.currentPlayer.sentToPenaltyBox();
     return true;
-  }
-
-  private setNextPlayer(): void {
-    this.players.setNextPlayer();
   }
 
   private get currentPlayer(): Player {
