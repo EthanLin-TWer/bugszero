@@ -4,12 +4,11 @@ import { Decks } from "./domain/decks";
 import { Players } from "./domain/players";
 
 export class Game {
-  private readonly players: Player[] = [];
-  private currentPlayerIndex: number = 0;
+  private readonly players: Players;
   private decks: Decks;
 
   constructor(...playerNames: Array<string>) {
-    this.players = new Players(...playerNames).players;
+    this.players = new Players(...playerNames);
     this.decks = new Decks(50);
   }
 
@@ -70,13 +69,10 @@ export class Game {
   }
 
   private setNextPlayer(): void {
-    this.currentPlayerIndex += 1;
-    if (this.currentPlayerIndex == this.players.length) {
-      this.currentPlayerIndex = 0;
-    }
+    this.players.setNextPlayer();
   }
 
   private get currentPlayer(): Player {
-    return this.players[this.currentPlayerIndex];
+    return this.players.getCurrentPlayer();
   }
 }

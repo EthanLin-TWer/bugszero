@@ -12,11 +12,14 @@ export class Players {
     });
   }
 
-  private setNextPlayer(): void {
+  public setNextPlayer(): void {
     this.currentPlayerIndex += 1;
     if (this.currentPlayerIndex == this.players.length) {
       this.currentPlayerIndex = 0;
     }
   }
 
+  public getCurrentPlayer(): Player {
+    return this.players[this.currentPlayerIndex];
+  }
 }
