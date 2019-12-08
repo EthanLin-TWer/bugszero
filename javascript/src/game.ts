@@ -33,7 +33,7 @@ export class Game {
   }
 
   private roll(roll): boolean {
-    console.log(`${this.getCurrentPlayerName()} is the current player`);
+    console.log(`${this.getCurrentPlayer().name} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
     if (!this.getCurrentPlayer().isInPenaltyBox) {
@@ -67,8 +67,8 @@ export class Game {
 
   private wrongAnswer(): boolean {
     console.log("Question was incorrectly answered");
-    this.getCurrentPlayer().sentToPenaltyBox();
 
+    this.getCurrentPlayer().sentToPenaltyBox();
     return true;
   }
 
@@ -81,9 +81,5 @@ export class Game {
 
   private getCurrentPlayer(): Player {
     return this.players[this.currentPlayer];
-  }
-
-  private getCurrentPlayerName() {
-    return this.getCurrentPlayer().name;
   }
 }
