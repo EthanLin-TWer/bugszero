@@ -48,9 +48,7 @@ export class Game {
       return true;
     }
 
-    console.log(
-      `${this.getCurrentPlayerName()} is not getting out of the penalty box`
-    );
+    this.getCurrentPlayer().stayInPenaltyBox();
     return false;
   }
 

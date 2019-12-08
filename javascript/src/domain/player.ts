@@ -47,6 +47,10 @@ export class Player {
     console.log(`${this._name} is getting out of the penalty box`);
   }
 
+  stayInPenaltyBox(): void {
+    console.log(`${this._name} is not getting out of the penalty box`);
+  }
+
   get isInPenaltyBox(): boolean {
     return this._isInPenaltyBox;
   }
