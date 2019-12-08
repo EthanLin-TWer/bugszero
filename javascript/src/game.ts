@@ -4,7 +4,7 @@ import { Decks } from "./domain/decks";
 
 export class Game {
   private readonly players: Player[] = [];
-  private currentPlayer: number = 0;
+  private currentPlayerIndex: number = 0;
   private decks: Decks;
 
   constructor(...playerNames: Array<string>) {
@@ -33,27 +33,27 @@ export class Game {
   }
 
   private roll(roll): boolean {
-    console.log(`${this.getCurrentPlayer().name} is the current player`);
+    console.log(`${this.currentPlayer.name} is the current player`);
     console.log(`They have rolled a ${roll}`);
 
-    if (!this.getCurrentPlayer().isInPenaltyBox) {
-      this.getCurrentPlayer().moveForward(roll);
+    if (!this.currentPlayer.isInPenaltyBox) {
+      this.currentPlayer.moveForward(roll);
       return true;
     }
 
     const isGettingOutOfPenaltyBox = roll % 2 !== 0;
     if (isGettingOutOfPenaltyBox) {
-      this.getCurrentPlayer().freedFromPenaltyBox();
-      this.getCurrentPlayer().moveForward(roll);
+      this.currentPlayer.freedFromPenaltyBox();
+      this.currentPlayer.moveForward(roll);
       return true;
     }
 
-    this.getCurrentPlayer().stayInPenaltyBox();
+    this.currentPlayer.stayInPenaltyBox();
     return false;
   }
 
   private askQuestion(): void {
-    const position = this.getCurrentPlayer().place;
+    const position = this.currentPlayer.place;
     const question = this.decks.getNextQuestion(position);
     console.log(question);
   }
@@ -61,25 +61,25 @@ export class Game {
   private correctAnswer(): boolean {
     console.log("Answer was correct!!!!");
 
-    this.getCurrentPlayer().increaseAGoldCoin();
-    return this.getCurrentPlayer().didWin();
+    this.currentPlayer.increaseAGoldCoin();
+    return this.currentPlayer.didWin();
   }
 
   private wrongAnswer(): boolean {
     console.log("Question was incorrectly answered");
 
-    this.getCurrentPlayer().sentToPenaltyBox();
+    this.currentPlayer.sentToPenaltyBox();
     return true;
   }
 
   private setNextPlayer(): void {
-    this.currentPlayer += 1;
-    if (this.currentPlayer == this.players.length) {
-      this.currentPlayer = 0;
+    this.currentPlayerIndex += 1;
+    if (this.currentPlayerIndex == this.players.length) {
+      this.currentPlayerIndex = 0;
     }
   }
 
-  private getCurrentPlayer(): Player {
-    return this.players[this.currentPlayer];
+  private get currentPlayer(): Player {
+    return this.players[this.currentPlayerIndex];
   }
 }
