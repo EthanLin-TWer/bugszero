@@ -62,7 +62,7 @@ export class Game {
     console.log("Answer was correct!!!!");
 
     this.getCurrentPlayer().increaseAGoldCoin();
-    return this.didCurrentPlayerWin();
+    return this.getCurrentPlayer().didWin();
   }
 
   private wrongAnswer(): boolean {
@@ -77,10 +77,6 @@ export class Game {
     if (this.currentPlayer == this.players.length) {
       this.currentPlayer = 0;
     }
-  }
-
-  private didCurrentPlayerWin() {
-    return this.getCurrentPlayer().didWin();
   }
 
   private getCurrentPlayer(): Player {
