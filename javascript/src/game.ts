@@ -1,5 +1,5 @@
 import { Player } from "./domain/player";
-import { Simulator } from "./simulator";
+import { GameSimulator } from "./gameSimulator";
 import { Decks } from "./domain/decks";
 
 export class Game {
@@ -16,7 +16,7 @@ export class Game {
     console.log(`They are player number ${this.players.length}`);
   }
 
-  start(simulator: Simulator): void {
+  start(simulator: GameSimulator): void {
     let notAWinner = false;
 
     do {

@@ -1001,7 +1001,7 @@ const seeds = [
   0.53
 ];
 
-export class Simulator {
+export class GameSimulator {
   private static GLOBAL_COUNTER: number = -1;
 
   simulateRolling() {
@@ -1013,7 +1013,7 @@ export class Simulator {
   }
 
   getRandom(upperLimit) {
-    Simulator.GLOBAL_COUNTER++;
-    return Math.ceil(seeds[Simulator.GLOBAL_COUNTER] * upperLimit);
+    GameSimulator.GLOBAL_COUNTER++;
+    return Math.ceil(seeds[GameSimulator.GLOBAL_COUNTER] * upperLimit);
   }
 }
