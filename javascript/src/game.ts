@@ -1,14 +1,14 @@
 import { Player } from "./domain/player";
 import { Simulator } from "./simulator";
-import { QuestionManager } from "./domain/question-manager";
+import { Decks } from "./domain/decks";
 
 export class Game {
   private players: Player[] = [];
   private currentPlayer: number = 0;
-  private questionManager: QuestionManager;
+  private decks: Decks;
 
   constructor() {
-    this.questionManager = new QuestionManager(50);
+    this.decks = new Decks(50);
   }
 
   add(playerName) {
@@ -32,10 +32,8 @@ export class Game {
   }
 
   private askQuestion(): void {
-    const question = this.questionManager.getNextQuestion(
-      this.getCurrentPlayer().place
-    );
-
+    const position = this.getCurrentPlayer().place;
+    const question = this.decks.getNextQuestion(position);
     console.log(question);
   }
 

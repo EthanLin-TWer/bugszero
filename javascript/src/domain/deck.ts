@@ -5,13 +5,9 @@ export class Deck {
   constructor(category: string, size: number) {
     this._category = category;
     // @ts-ignore
-    this.questions = Array.from({ length: size }).map((_, i) =>
-      Deck.createQuestion(category, i)
+    this.questions = Array.from({ length: size }).map(
+      (_, i) => `${category} Question ${i}`
     );
-  }
-
-  private static createQuestion(categoryName: string, i: number) {
-    return `${categoryName} Question ${i}`;
   }
 
   public get category(): string {

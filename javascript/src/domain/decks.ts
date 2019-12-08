@@ -1,7 +1,7 @@
 import { Categories, Category } from "./category";
 import { Deck } from "./deck";
 
-export class QuestionManager {
+export class Decks {
   private decks: Array<Deck>;
 
   constructor(questionsPerDeck: number) {
