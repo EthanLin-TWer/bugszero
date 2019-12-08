@@ -52,21 +52,21 @@ export class Game {
     }
   }
 
-  private correctAnswer() {
+  private correctAnswer(): boolean {
     console.log("Answer was correct!!!!");
 
     this.getCurrentPlayer().increaseAGoldCoin();
     return this.didCurrentPlayerWin();
   }
 
-  private wrongAnswer() {
+  private wrongAnswer(): boolean {
     console.log("Question was incorrectly answered");
     this.getCurrentPlayer().sentToPenaltyBox();
 
     return true;
   }
 
-  private setNextPlayer() {
+  private setNextPlayer(): void {
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) {
       this.currentPlayer = 0;
