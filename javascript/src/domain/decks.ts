@@ -17,7 +17,10 @@ export class Decks {
   }
 
   private findDeck(category: Category): Deck {
-    // @ts-ignore
-    return this.decks.find(deck => deck.category === category);
+    const found = this.decks.find(deck => deck.category === category);
+    if (!found) {
+      throw new Error("should not reach here");
+    }
+    return found;
   }
 }

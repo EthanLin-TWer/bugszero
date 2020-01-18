@@ -9,7 +9,6 @@ export enum Category {
 
 export class Categories {
   public static values(): Array<Category> {
-    // @ts-ignore
     return Object.values(Category);
   }
 

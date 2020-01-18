@@ -10,7 +10,6 @@ export class Deck {
   constructor(category: Category, size: number) {
     this._category = category;
     this.size = size;
-    // @ts-ignore
     this.questions = Array.from({ length: size }).map(
       (_, i) => `${category} Question ${i}`
     );
